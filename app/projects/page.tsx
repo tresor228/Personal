@@ -30,6 +30,39 @@ const Projects: React.FC = () => {
       tools: "Golang, JavaScript, HTML & CSS",
       year: "2025",
     },
+    {
+      id: 3,
+      name: "Micro-Cours",
+      image: "/projects/micro.png",
+      description:
+        "Météo est une application web simple et responsive qui vous permet d’obtenir les prévisions météo selon le lieu choisi.",
+      link: "https://micro-cour.vercel.app/",
+      github: "https://github.com/tresor228/micro-learn.git",
+      tools: "FIREBASE, JavaScript, HTML & CSS",
+      year: "2025",
+    },
+    {
+      id: 4,
+      name: "Pitch IA",
+      image: "/projects/pitch.png",
+      description:
+        "Météo est une application web simple et responsive qui vous permet d’obtenir les prévisions météo selon le lieu choisi.",
+      link: "https://app-pitch.onrender.com",
+      github: "https://github.com/tresor228/Pitch-IA.git",
+      tools: "Golang, HTML & CSS",
+      year: "2025",
+    },
+     {
+      id: 5,
+      name: "Suivi de Colis",
+      image: "/projects/suivi.png",
+      description:
+        "Météo est une application web simple et responsive qui vous permet d’obtenir les prévisions météo selon le lieu choisi.",
+      link: "https://suivipro.netlify.app/",
+      github: "https://github.com/tresor228/Suivi-simple.git",
+      tools: "Firebase, JavaScript, HTML & CSS",
+      year: "2025",
+    },
   ];
 
   return (
