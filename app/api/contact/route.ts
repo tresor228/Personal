@@ -1,7 +1,8 @@
 export const runtime = 'nodejs';
 
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+
+import { transporter } from '@/lib/mailer';
 
 export async function POST(req: Request) {
   try {
@@ -14,14 +15,9 @@ export async function POST(req: Request) {
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
 
+
+    return NextResponse.json({ message: 'Email envoyé avec succès' });
     const mailOptions = {
       from: `"${name}" <${process.env.EMAIL_USER}>`,
       to: 'bernardalade92@gmail.com',

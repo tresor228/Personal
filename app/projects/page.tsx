@@ -44,7 +44,7 @@ const Projects: React.FC = () => {
     {
       id: 4,
       name: "Pitch IA",
-      image: "/projects/pitch.png",
+      image: "/projects/pich.png",
       description:
         "Météo est une application web simple et responsive qui vous permet d’obtenir les prévisions météo selon le lieu choisi.",
       link: "https://app-pitch.onrender.com",
