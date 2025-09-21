@@ -483,6 +483,10 @@ img, video {
   height: 1px;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -776,8 +780,16 @@ img, video {
   fill: currentColor;
 }
 
+.object-contain {
+  object-fit: contain;
+}
+
 .object-cover {
   object-fit: cover;
+}
+
+.object-center {
+  object-position: center;
 }
 
 .p-1 {
@@ -1460,6 +1472,11 @@ html.light {
 
 .dark\:bg-red-900\/20:is(.dark *) {
   background-color: rgba(127, 29, 29, .2);
+}
+
+.dark\:bg-gray-600:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgba(75, 85, 99, var(--tw-bg-opacity, 1));
 }
 
 .dark\:from-gray-800:is(.dark *) {

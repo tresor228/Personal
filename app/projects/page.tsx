@@ -11,7 +11,7 @@ const Projects: React.FC = () => {
     {
       id: 1,
       name: "Suivi de Dépense",
-      image: "/projects/depense.png",
+      image: "/projects/depense.jpeg",
       description:
         "Suivi de Dépense est une application web dédiée à la gestion de vos finances. Elle vous permet de suivre vos revenus et vos dépenses facilement, et d’avoir une vue claire sur vos flux financiers.",
       link: "https://bytedepense.netlify.app/",
@@ -21,13 +21,13 @@ const Projects: React.FC = () => {
     },
     {
       id: 2,
-      name: "Météo",
-      image: "/projects/meteo.png",
+      name: "Suivi de Colis",
+      image: "/projects/suivi.jpeg",
       description:
-        "Météo est une application web simple et responsive qui vous permet d’obtenir les prévisions météo selon le lieu choisi.",
-      link: "https://meteodev.onrender.com/",
-      github: "https://github.com/tresor228/Meteo-Go-js.git",
-      tools: "Golang, JavaScript, HTML & CSS",
+        "Suivi de Colis est une application web qui permet de suivre vos colis en temps réel. Entrez simplement votre numéro de suivi pour obtenir les dernières mises à jour sur l'état de votre livraison.",
+      link: "https://suivipro.netlify.app/",
+      github: "https://github.com/tresor228/Suivi-simple.git",
+      tools: "Firebase, JavaScript, HTML & CSS",
       year: "2025",
     },
     {
@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
       name: "Micro-Cours",
       image: "/projects/micro.png",
       description:
-        "Météo est une application web simple et responsive qui vous permet d’obtenir les prévisions météo selon le lieu choisi.",
+        "Micro-Cours est une plateforme d'apprentissage en ligne qui propose des cours sur divers sujets.",
       link: "https://micro-cour.vercel.app/",
       github: "https://github.com/tresor228/micro-learn.git",
       tools: "FIREBASE, JavaScript, HTML & CSS",
@@ -46,21 +46,10 @@ const Projects: React.FC = () => {
       name: "Pitch IA",
       image: "/projects/pich.png",
       description:
-        "Météo est une application web simple et responsive qui vous permet d’obtenir les prévisions météo selon le lieu choisi.",
+        "PICTCH IA est une plateforme qui utilise l’intelligence artificielle pour identifier et prédire la cible d’un projet",
       link: "https://app-pitch.onrender.com",
       github: "https://github.com/tresor228/Pitch-IA.git",
       tools: "Golang, HTML & CSS",
-      year: "2025",
-    },
-     {
-      id: 5,
-      name: "Suivi de Colis",
-      image: "/projects/suivi.png",
-      description:
-        "Météo est une application web simple et responsive qui vous permet d’obtenir les prévisions météo selon le lieu choisi.",
-      link: "https://suivipro.netlify.app/",
-      github: "https://github.com/tresor228/Suivi-simple.git",
-      tools: "Firebase, JavaScript, HTML & CSS",
       year: "2025",
     },
   ];
@@ -86,14 +75,15 @@ const Projects: React.FC = () => {
             className="items-center grid grid-cols-1 md:grid-cols-2 gap-6 py-16"
           >
             <div className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 p-2 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              <div className="relative overflow-hidden rounded-lg">
                 <Image
                   src={project.image}
                   alt={project.name}
                   width={800}
                   height={600}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
                   priority
+                  quality={95}
                 />
               </div>
             </div>

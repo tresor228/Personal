@@ -8,8 +8,8 @@ import "aos/dist/aos.css";
 
 const About: React.FC = () => {
   const links = [
-    "https://drive.google.com/file/d/1Ntl4MceIIxTW51GIN9BD9RjRf98Xo6SF/view?usp=drive_link", // CV
-    "https://www.linkedin.com/in/tr%C3%A9sor-alade-095a12337/",
+    "https://drive.google.com/file/d/1rYOaQyPrFcTkXTCAEPodT1CtUVposwTi/view?usp=drive_link", // CV
+    "https://www.linkedin.com/in/tresor-alade/",
     "https://github.com/tresor228",
   ];
 

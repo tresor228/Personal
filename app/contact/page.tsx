@@ -59,12 +59,12 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const cvLink = "https://drive.google.com/file/d/1Ntl4MceIIxTW51GIN9BD9RjRf98Xo6SF/view?usp=drive_link";
+  const cvLink = "https://drive.google.com/file/d/1rYOaQyPrFcTkXTCAEPodT1CtUVposwTi/view?usp=drive_link";
 
   const socials = [
     { id: 1, name: "Telegram", icon: <FaTelegram />, link: "https://t.me/TDev01" },
     { id: 2, name: "GitHub", icon: <FaGithub />, link: "https://github.com/tresor228" },
-    { id: 3, name: "LinkedIn", icon: <FaLinkedin />, link: "https://www.linkedin.com/in/tr%C3%A9sor-alade-095a12337/" },
+    { id: 3, name: "LinkedIn", icon: <FaLinkedin />, link: "https://www.linkedin.com/in/tresor-alade/" },
     { id: 4, name: "Twitter", icon: <FaTwitter />, link: "https://x.com/kodjo_alad65494?t=EiKhL1pQpRztgvX7BvTQmw&s=09" },
   ];
 
