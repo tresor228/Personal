@@ -92,7 +92,7 @@ export async function POST(req: Request) {
     { 
       success: false,
       error: "Erreur lors de l'envoi de l'email. Veuillez réessayer.",
-      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+      details: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.message : String(error)) : undefined
     },
       { status: 500 }
     );
