@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Archivo, Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
 import { ThemeProvider } from "./components/theme-provider";
-import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,14 +39,20 @@ export const metadata: Metadata = {
   },
 };
 
+// Ajouter le lien CSS pour AOS dans les métadonnées
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <Head>
+    <html lang="fr" suppressHydrationWarning>
+      <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
         {/* Script pour éviter le flash de thème clair lors du chargement */}
         <script
@@ -66,7 +71,7 @@ export default function RootLayout({
             `,
           }}
         />
-      </Head>
+      </head>
       <body
         className={`${inter.variable} ${archivo.variable} ${geistMono.variable} antialiased overflow-x-hidden min-h-screen scroll-smooth`}
       > 
