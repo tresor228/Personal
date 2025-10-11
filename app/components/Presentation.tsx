@@ -19,7 +19,7 @@ const Presentation = () => {
             <p 
             className='uppercase text-2xl sm:text-4xl font-bold my-2 py-2'>
               <span className=''>Salut,  je suis</span><br />
-              <span className='pb-4'>Trésor ALADE.</span>
+              <span className='pb-4'>Kodjo B. Trésor ALADE.</span>
             </p>
             <p className='dark:text-gray-300'>
             Développeur backend junior, passionné 

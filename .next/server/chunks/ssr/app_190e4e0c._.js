@@ -51,7 +51,7 @@ const Presentation = ()=>{
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "pb-4",
-                                        children: "Trésor ALADE."
+                                        children: "Kodjo B. Trésor ALADE."
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/Presentation.tsx",
                                         lineNumber: 22,
@@ -207,42 +207,42 @@ const Projects = ()=>{
     const projects = [
         {
             id: 1,
+            name: "GitInsight",
+            image: "/projects/GitInsight.png",
+            description: "GitInsight est un outil CLI qui vous aide à visualiser et analyser vos dépôts Git.",
+            link: "https://github.com/tresor228/GitInsight.git",
+            github: "https://github.com/tresor228/GitInsight.git",
+            tools: "Golang ",
+            year: "2025"
+        },
+        {
+            id: 2,
             name: "Suivi de Dépense",
             image: "/projects/depense.jpeg",
-            description: "Suivi de Dépense est une application web dédiée à la gestion de vos finances. Elle vous permet de suivre vos revenus et vos dépenses facilement, et d’avoir une vue claire sur vos flux financiers.",
+            description: "Suivi de Dépense est un outil web dédié à la gestion de vos finances. Il vous permet de suivre vos revenus et vos dépenses facilement, et d’avoir une vue claire sur vos flux financiers.",
             link: "https://bytedepense.netlify.app/",
             github: "https://github.com/tresor228/mini-depense-web.git",
             tools: "Golang, JavaScript, HTML & CSS",
             year: "2025"
         },
         {
-            id: 2,
-            name: "Suivi de Colis",
-            image: "/projects/suivi.jpeg",
-            description: "Suivi de Colis est une application web qui permet de suivre vos colis en temps réel. Entrez simplement votre numéro de suivi pour obtenir les dernières mises à jour sur l'état de votre livraison.",
-            link: "https://suivipro.netlify.app/",
-            github: "https://github.com/tresor228/Suivi-simple.git",
-            tools: "Firebase, JavaScript, HTML & CSS",
-            year: "2025"
-        },
-        {
             id: 3,
-            name: "Micro-Cours",
-            image: "/projects/micro.png",
-            description: "Micro-Cours est une plateforme d'apprentissage en ligne qui propose des cours sur divers sujets.",
-            link: "https://micro-cour.vercel.app/",
-            github: "https://github.com/tresor228/micro-learn.git",
-            tools: "FIREBASE, JavaScript, HTML & CSS",
-            year: "2025"
-        },
-        {
-            id: 4,
             name: "Pitch IA",
             image: "/projects/pich.png",
             description: "PICTCH IA est une plateforme qui utilise l’intelligence artificielle pour identifier et prédire la cible d’un projet",
             link: "https://app-pitch.onrender.com",
             github: "https://github.com/tresor228/Pitch-IA.git",
             tools: "Golang, HTML & CSS",
+            year: "2025"
+        },
+        {
+            id: 4,
+            name: "Micro-Cours",
+            image: "/projects/micro.png",
+            description: "Micro-Cours est une plateforme d'apprentissage en ligne qui propose des cours sur divers sujets.",
+            link: "https://micro-cour.vercel.app/",
+            github: "https://github.com/tresor228/micro-learn.git",
+            tools: "FIREBASE, JavaScript, HTML & CSS",
             year: "2025"
         }
     ];
@@ -708,7 +708,7 @@ const Skills = ()=>{
                 className: "text-orange-500"
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 15,
+                lineNumber: 19,
                 columnNumber: 34
             }, ("TURBOPACK compile-time value", void 0))
         },
@@ -719,7 +719,7 @@ const Skills = ()=>{
                 className: "text-blue-500"
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 16,
+                lineNumber: 20,
                 columnNumber: 33
             }, ("TURBOPACK compile-time value", void 0))
         },
@@ -730,7 +730,7 @@ const Skills = ()=>{
                 className: "text-yellow-400"
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 17,
+                lineNumber: 21,
                 columnNumber: 40
             }, ("TURBOPACK compile-time value", void 0))
         },
@@ -741,19 +741,19 @@ const Skills = ()=>{
                 className: "text-red-500"
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 18,
+                lineNumber: 22,
                 columnNumber: 33
             }, ("TURBOPACK compile-time value", void 0))
         },
         {
             id: 5,
-            name: "MySQL",
-            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$si$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SiMysql"], {
+            name: "PostgreSQL",
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$si$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SiPostgresql"], {
                 className: "text-blue-600"
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 19,
-                columnNumber: 35
+                lineNumber: 23,
+                columnNumber: 40
             }, ("TURBOPACK compile-time value", void 0))
         },
         {
@@ -763,41 +763,41 @@ const Skills = ()=>{
                 className: "text-cyan-500"
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 20,
+                lineNumber: 24,
                 columnNumber: 32
             }, ("TURBOPACK compile-time value", void 0))
         },
         {
             id: 7,
-            name: "Next.js",
-            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$si$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SiNextdotjs"], {
-                className: "text-black dark:text-white"
+            name: "Postman",
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$si$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SiPostman"], {
+                className: "text-orange-500"
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 21,
+                lineNumber: 25,
                 columnNumber: 37
             }, ("TURBOPACK compile-time value", void 0))
         },
         {
             id: 8,
-            name: "TypeScript",
-            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$si$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SiTypescript"], {
-                className: "text-blue-500"
+            name: "Supabase",
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$si$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SiSupabase"], {
+                className: "text-teal-400"
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 22,
-                columnNumber: 40
+                lineNumber: 26,
+                columnNumber: 38
             }, ("TURBOPACK compile-time value", void 0))
         },
         {
             id: 9,
-            name: "Tailwind CSS",
-            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$si$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SiTailwindcss"], {
-                className: "text-teal-400"
+            name: "React",
+            icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$si$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SiReact"], {
+                className: "text-blue-500"
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 23,
-                columnNumber: 42
+                lineNumber: 27,
+                columnNumber: 35
             }, ("TURBOPACK compile-time value", void 0))
         }
     ];
@@ -808,7 +808,7 @@ const Skills = ()=>{
                 className: "pt-20 text-zinc-700"
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 28,
+                lineNumber: 32,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -822,7 +822,7 @@ const Skills = ()=>{
                             children: "Mes Compétences"
                         }, void 0, false, {
                             fileName: "[project]/app/skills/page.tsx",
-                            lineNumber: 31,
+                            lineNumber: 35,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -836,12 +836,12 @@ const Skills = ()=>{
                                         children: "J’aime apprendre constamment de nouvelles technologies et améliorer mes compétences. Voici les outils et langages que je maîtrise actuellement :"
                                     }, void 0, false, {
                                         fileName: "[project]/app/skills/page.tsx",
-                                        lineNumber: 42,
+                                        lineNumber: 46,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/app/skills/page.tsx",
-                                    lineNumber: 38,
+                                    lineNumber: 42,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -858,7 +858,7 @@ const Skills = ()=>{
                                                     children: skill.icon
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/skills/page.tsx",
-                                                    lineNumber: 59,
+                                                    lineNumber: 63,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -866,41 +866,41 @@ const Skills = ()=>{
                                                     children: skill.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/skills/page.tsx",
-                                                    lineNumber: 60,
+                                                    lineNumber: 64,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, skill.id, true, {
                                             fileName: "[project]/app/skills/page.tsx",
-                                            lineNumber: 53,
+                                            lineNumber: 57,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/app/skills/page.tsx",
-                                    lineNumber: 47,
+                                    lineNumber: 51,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/skills/page.tsx",
-                            lineNumber: 37,
+                            lineNumber: 41,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/skills/page.tsx",
-                    lineNumber: 30,
+                    lineNumber: 34,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/skills/page.tsx",
-                lineNumber: 29,
+                lineNumber: 33,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/skills/page.tsx",
-        lineNumber: 27,
+        lineNumber: 31,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

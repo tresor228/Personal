@@ -8,6 +8,10 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiMysql,
+  SiReact,
+  SiPostgresql,
+  SiSupabase,
+  SiPostman, // Ajouté ici
 } from "react-icons/si";
 
 const Skills: React.FC = () => {
@@ -16,11 +20,11 @@ const Skills: React.FC = () => {
     { id: 2, name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
     { id: 3, name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
     { id: 4, name: "Git", icon: <FaGit className="text-red-500" /> },
-    { id: 5, name: "MySQL", icon: <SiMysql className="text-blue-600" /> },
+    { id: 5, name: "PostgreSQL", icon: <SiPostgresql className="text-blue-600" /> },
     { id: 6, name: "Go", icon: <SiGo className="text-cyan-500" /> },
-    { id: 7, name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" /> },
-    { id: 8, name: "TypeScript", icon: <SiTypescript className="text-blue-500" /> },
-    { id: 9, name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" /> },
+    { id: 7, name: "Postman", icon: <SiPostman className="text-orange-500" /> }, // Correction ici
+    { id: 8, name: "Supabase", icon: <SiSupabase className="text-teal-400" /> },
+    { id: 9, name: "React", icon: <SiReact className="text-blue-500" /> },
   ];
 
   return (

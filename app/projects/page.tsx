@@ -10,39 +10,28 @@ const Projects: React.FC = () => {
   const projects = [
     {
       id: 1,
+      name: "GitInsight",
+      image: "/projects/GitInsight.png",
+      description:
+        "GitInsight est un outil CLI qui vous aide à visualiser et analyser vos dépôts Git.",
+      link: "https://github.com/tresor228/GitInsight.git",
+      github: "https://github.com/tresor228/GitInsight.git",
+      tools: "Golang ",
+      year: "2025",
+    },
+    {
+      id: 2,
       name: "Suivi de Dépense",
       image: "/projects/depense.jpeg",
       description:
-        "Suivi de Dépense est une application web dédiée à la gestion de vos finances. Elle vous permet de suivre vos revenus et vos dépenses facilement, et d’avoir une vue claire sur vos flux financiers.",
+        "Suivi de Dépense est un outil web dédié à la gestion de vos finances. Il vous permet de suivre vos revenus et vos dépenses facilement, et d’avoir une vue claire sur vos flux financiers.",
       link: "https://bytedepense.netlify.app/",
       github: "https://github.com/tresor228/mini-depense-web.git",
       tools: "Golang, JavaScript, HTML & CSS",
       year: "2025",
     },
     {
-      id: 2,
-      name: "Suivi de Colis",
-      image: "/projects/suivi.jpeg",
-      description:
-        "Suivi de Colis est une application web qui permet de suivre vos colis en temps réel. Entrez simplement votre numéro de suivi pour obtenir les dernières mises à jour sur l'état de votre livraison.",
-      link: "https://suivipro.netlify.app/",
-      github: "https://github.com/tresor228/Suivi-simple.git",
-      tools: "Firebase, JavaScript, HTML & CSS",
-      year: "2025",
-    },
-    {
       id: 3,
-      name: "Micro-Cours",
-      image: "/projects/micro.png",
-      description:
-        "Micro-Cours est une plateforme d'apprentissage en ligne qui propose des cours sur divers sujets.",
-      link: "https://micro-cour.vercel.app/",
-      github: "https://github.com/tresor228/micro-learn.git",
-      tools: "FIREBASE, JavaScript, HTML & CSS",
-      year: "2025",
-    },
-    {
-      id: 4,
       name: "Pitch IA",
       image: "/projects/pich.png",
       description:
@@ -50,6 +39,17 @@ const Projects: React.FC = () => {
       link: "https://app-pitch.onrender.com",
       github: "https://github.com/tresor228/Pitch-IA.git",
       tools: "Golang, HTML & CSS",
+      year: "2025",
+    },
+    {
+      id: 4,
+      name: "Micro-Cours",
+      image: "/projects/micro.png",
+      description:
+        "Micro-Cours est une plateforme d'apprentissage en ligne qui propose des cours sur divers sujets.",
+      link: "https://micro-cour.vercel.app/",
+      github: "https://github.com/tresor228/micro-learn.git",
+      tools: "FIREBASE, JavaScript, HTML & CSS",
       year: "2025",
     },
   ];
