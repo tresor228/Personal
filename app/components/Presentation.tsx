@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 const Presentation = () => {
   const link = [
-    "https://www.linkedin.com/in/tr%C3%A9sor-alade-095a12337/",
+    "https://www.linkedin.com/in/tresor-alade/",
     "https://github.com/tresor228"
   ]
   return (

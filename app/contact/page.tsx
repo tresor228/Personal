@@ -59,7 +59,7 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const cvLink = "https://drive.google.com/file/d/1rYOaQyPrFcTkXTCAEPodT1CtUVposwTi/view?usp=drive_link";
+  const cvLink = "https://drive.google.com/file/d/1behEb3PVVAaAX1lu-7ZS80eNMxYi8i1K/view?usp=drive_link";
 
   const socials = [
     { id: 1, name: "Telegram", icon: <FaTelegram />, link: "https://t.me/TDev01" },
