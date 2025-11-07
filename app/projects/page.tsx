@@ -10,17 +10,6 @@ const Projects: React.FC = () => {
   const projects = [
     {
       id: 1,
-      name: "GitInsight",
-      image: "/projects/GitInsight.png",
-      description:
-        "GitInsight est un outil CLI qui vous aide à visualiser et analyser vos dépôts Git.",
-      link: "https://github.com/tresor228/GitInsight.git",
-      github: "https://github.com/tresor228/GitInsight.git",
-      tools: "Golang ",
-      year: "2025",
-    },
-    {
-      id: 2,
       name: "Suivi de Dépense",
       image: "/projects/depense.jpeg",
       description:
@@ -31,9 +20,9 @@ const Projects: React.FC = () => {
       year: "2025",
     },
     {
-      id: 3,
+      id: 2,
       name: "Pitch IA",
-      image: "/projects/pich.png",
+      image: "/projects/pitch.png",
       description:
         "PICTCH IA est une plateforme qui utilise l’intelligence artificielle pour identifier et prédire la cible d’un projet",
       link: "https://app-pitch.onrender.com",
@@ -42,7 +31,7 @@ const Projects: React.FC = () => {
       year: "2025",
     },
     {
-      id: 4,
+      id: 3,
       name: "Micro-Cours",
       image: "/projects/micro.png",
       description:

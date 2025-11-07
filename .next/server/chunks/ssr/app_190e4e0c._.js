@@ -20,7 +20,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 const Presentation = ()=>{
     const link = [
-        "https://www.linkedin.com/in/tr%C3%A9sor-alade-095a12337/",
+        "https://www.linkedin.com/in/tresor-alade/",
         "https://github.com/tresor228"
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -207,16 +207,6 @@ const Projects = ()=>{
     const projects = [
         {
             id: 1,
-            name: "GitInsight",
-            image: "/projects/GitInsight.png",
-            description: "GitInsight est un outil CLI qui vous aide à visualiser et analyser vos dépôts Git.",
-            link: "https://github.com/tresor228/GitInsight.git",
-            github: "https://github.com/tresor228/GitInsight.git",
-            tools: "Golang ",
-            year: "2025"
-        },
-        {
-            id: 2,
             name: "Suivi de Dépense",
             image: "/projects/depense.jpeg",
             description: "Suivi de Dépense est un outil web dédié à la gestion de vos finances. Il vous permet de suivre vos revenus et vos dépenses facilement, et d’avoir une vue claire sur vos flux financiers.",
@@ -226,9 +216,9 @@ const Projects = ()=>{
             year: "2025"
         },
         {
-            id: 3,
+            id: 2,
             name: "Pitch IA",
-            image: "/projects/pich.png",
+            image: "/projects/pitch.png",
             description: "PICTCH IA est une plateforme qui utilise l’intelligence artificielle pour identifier et prédire la cible d’un projet",
             link: "https://app-pitch.onrender.com",
             github: "https://github.com/tresor228/Pitch-IA.git",
@@ -236,7 +226,7 @@ const Projects = ()=>{
             year: "2025"
         },
         {
-            id: 4,
+            id: 3,
             name: "Micro-Cours",
             image: "/projects/micro.png",
             description: "Micro-Cours est une plateforme d'apprentissage en ligne qui propose des cours sur divers sujets.",
@@ -253,7 +243,7 @@ const Projects = ()=>{
                 className: "pt-5 text-zinc-700"
             }, void 0, false, {
                 fileName: "[project]/app/projects/page.tsx",
-                lineNumber: 59,
+                lineNumber: 48,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -265,7 +255,7 @@ const Projects = ()=>{
                         children: "Mes Projets"
                     }, void 0, false, {
                         fileName: "[project]/app/projects/page.tsx",
-                        lineNumber: 61,
+                        lineNumber: 50,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -274,13 +264,13 @@ const Projects = ()=>{
                         children: "Voici une sélection de projets qui démontrent ma passion pour le développement full-stack."
                     }, void 0, false, {
                         fileName: "[project]/app/projects/page.tsx",
-                        lineNumber: 64,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/projects/page.tsx",
-                lineNumber: 60,
+                lineNumber: 49,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -304,17 +294,17 @@ const Projects = ()=>{
                                         quality: 95
                                     }, void 0, false, {
                                         fileName: "[project]/app/projects/page.tsx",
-                                        lineNumber: 79,
+                                        lineNumber: 68,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/app/projects/page.tsx",
-                                    lineNumber: 78,
+                                    lineNumber: 67,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/app/projects/page.tsx",
-                                lineNumber: 77,
+                                lineNumber: 66,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -325,7 +315,7 @@ const Projects = ()=>{
                                         children: project.name
                                     }, void 0, false, {
                                         fileName: "[project]/app/projects/page.tsx",
-                                        lineNumber: 92,
+                                        lineNumber: 81,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -335,12 +325,12 @@ const Projects = ()=>{
                                             children: project.description
                                         }, void 0, false, {
                                             fileName: "[project]/app/projects/page.tsx",
-                                            lineNumber: 95,
+                                            lineNumber: 84,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/app/projects/page.tsx",
-                                        lineNumber: 94,
+                                        lineNumber: 83,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -351,7 +341,7 @@ const Projects = ()=>{
                                                 children: "Informations du projet"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/projects/page.tsx",
-                                                lineNumber: 99,
+                                                lineNumber: 88,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -362,7 +352,7 @@ const Projects = ()=>{
                                                         children: "Année"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/projects/page.tsx",
-                                                        lineNumber: 101,
+                                                        lineNumber: 90,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -370,20 +360,20 @@ const Projects = ()=>{
                                                         children: project.year
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/projects/page.tsx",
-                                                        lineNumber: 102,
+                                                        lineNumber: 91,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/projects/page.tsx",
-                                                lineNumber: 100,
+                                                lineNumber: 89,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                                                 className: "border-gray-200 dark:border-gray-700"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/projects/page.tsx",
-                                                lineNumber: 104,
+                                                lineNumber: 93,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -394,7 +384,7 @@ const Projects = ()=>{
                                                         children: "Outils"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/projects/page.tsx",
-                                                        lineNumber: 106,
+                                                        lineNumber: 95,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -402,19 +392,19 @@ const Projects = ()=>{
                                                         children: project.tools
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/projects/page.tsx",
-                                                        lineNumber: 107,
+                                                        lineNumber: 96,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/projects/page.tsx",
-                                                lineNumber: 105,
+                                                lineNumber: 94,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/projects/page.tsx",
-                                        lineNumber: 98,
+                                        lineNumber: 87,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -432,18 +422,18 @@ const Projects = ()=>{
                                                             className: "ml-2 h-4 w-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/projects/page.tsx",
-                                                            lineNumber: 115,
+                                                            lineNumber: 104,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/projects/page.tsx",
-                                                    lineNumber: 113,
+                                                    lineNumber: 102,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/app/projects/page.tsx",
-                                                lineNumber: 112,
+                                                lineNumber: 101,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -458,47 +448,47 @@ const Projects = ()=>{
                                                             className: "ml-2 h-4 w-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/projects/page.tsx",
-                                                            lineNumber: 121,
+                                                            lineNumber: 110,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/projects/page.tsx",
-                                                    lineNumber: 119,
+                                                    lineNumber: 108,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/app/projects/page.tsx",
-                                                lineNumber: 118,
+                                                lineNumber: 107,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/projects/page.tsx",
-                                        lineNumber: 111,
+                                        lineNumber: 100,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/projects/page.tsx",
-                                lineNumber: 91,
+                                lineNumber: 80,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, project.id, true, {
                         fileName: "[project]/app/projects/page.tsx",
-                        lineNumber: 71,
+                        lineNumber: 60,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)))
             }, void 0, false, {
                 fileName: "[project]/app/projects/page.tsx",
-                lineNumber: 69,
+                lineNumber: 58,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/projects/page.tsx",
-        lineNumber: 58,
+        lineNumber: 47,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -981,7 +971,7 @@ const Contact = ()=>{
                 [name]: value
             }));
     };
-    const cvLink = "https://drive.google.com/file/d/1rYOaQyPrFcTkXTCAEPodT1CtUVposwTi/view?usp=drive_link";
+    const cvLink = "https://drive.google.com/file/d/1VeVYuIxP5x4-9AKsxUC9TW4LW_osmwJ8/view?usp=drive_link";
     const socials = [
         {
             id: 1,
