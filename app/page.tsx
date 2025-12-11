@@ -5,7 +5,9 @@ import Presentation from "./components/Presentation";
 import Projects from "./projects/page";
 import About from "./about/page";
 import Skills from "./skills/page";
+import Certification from "./certification/page";
 import Contact from "./contact/page";
+import ChatBot from "./components/ChatBot";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -30,6 +32,7 @@ const Page: React.FC = () => {
         <Projects />
         <About />
         <Skills />
+        <Certification />
         <Contact />
       </div>
     );
@@ -41,7 +44,9 @@ const Page: React.FC = () => {
       <Projects />
       <About />
       <Skills />
+      <Certification />
       <Contact />
+      <ChatBot />
     </div>
   );
 };

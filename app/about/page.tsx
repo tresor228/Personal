@@ -32,7 +32,7 @@ const About: React.FC = () => {
               className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl"
             >
               <p className="text-xl leading-relaxed">
-                Développeur backend junior curieux et passionné, j’aime concevoir des sites web modernes, rapides et faciles à utiliser.
+                Administrateur Base de Données curieux et passionné, j’aime concevoir des sites web modernes, rapides et faciles à utiliser.
                 Mon objectif : allier performance, accessibilité et élégance dans chaque projet.
               </p>
             </div>
@@ -43,7 +43,7 @@ const About: React.FC = () => {
               className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl"
             >
               <p className="leading-relaxed">
-                Étudiant en développement d'applications, je suis attentif aux détails et je m’efforce de toujours fournir un travail de qualité.
+                Étudiant en IA & Big Data, je suis attentif aux détails et je m’efforce de toujours fournir un travail de qualité.
               </p>
               <p className="mt-4">
                 La résolution de problèmes me passionne, et je suis toujours motivé à apprendre de nouvelles choses.

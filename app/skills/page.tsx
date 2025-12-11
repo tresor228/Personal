@@ -1,12 +1,9 @@
 "use client";
 
 import React from "react";
-import { FaHtml5, FaCss3Alt, FaJs, FaGit } from "react-icons/fa";
+import {  FaJs, FaGit } from "react-icons/fa";
 import {
-  SiNextdotjs,
   SiGo,
-  SiTailwindcss,
-  SiTypescript,
   SiMysql,
   SiReact,
   SiPostgresql,
@@ -16,15 +13,14 @@ import {
 
 const Skills: React.FC = () => {
   const skills = [
-    { id: 1, name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
-    { id: 2, name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
-    { id: 3, name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
-    { id: 4, name: "Git", icon: <FaGit className="text-red-500" /> },
-    { id: 5, name: "PostgreSQL", icon: <SiPostgresql className="text-blue-600" /> },
-    { id: 6, name: "Go", icon: <SiGo className="text-cyan-500" /> },
-    { id: 7, name: "Postman", icon: <SiPostman className="text-orange-500" /> }, // Correction ici
-    { id: 8, name: "Supabase", icon: <SiSupabase className="text-teal-400" /> },
-    { id: 9, name: "React", icon: <SiReact className="text-blue-500" /> },
+    { id: 1, name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
+    { id: 2, name: "Git", icon: <FaGit className="text-red-500" /> },
+    { id: 3, name: "PostgreSQL", icon: <SiPostgresql className="text-blue-600" /> },
+    { id: 4, name: "Go", icon: <SiGo className="text-cyan-500" /> },
+    { id: 5, name: "Postman", icon: <SiPostman className="text-orange-500" /> }, // Correction ici
+    { id: 6, name: "Supabase", icon: <SiSupabase className="text-teal-400" /> },
+    { id: 7, name: "React", icon: <SiReact className="text-blue-500" /> },
+    { id: 8, name: "Mysql", icon: <SiMysql className="text-blue-500" /> },
   ];
 
   return (
