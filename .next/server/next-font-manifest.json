@@ -1,16 +1,1 @@
-{
-  "app": {
-    "[project]/app/page": [
-      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/797e433ab948586e-s.p.dbea232f.woff2",
-      "static/media/a218039a3287bcfd-s.p.4a23d71b.woff2",
-      "static/media/e2334d715941921e-s.p.d82a9aff.woff2",
-      "static/media/47fe1b7cd6e6ed85-s.p.855a563b.woff2",
-      "static/media/75affa71d1e2f6a7-s.p.51cde8ff.woff2"
-    ]
-  },
-  "appUsingSizeAdjust": true,
-  "pages": {},
-  "pagesUsingSizeAdjust": false
-}
+{"pages":{},"app":{"/home/tresor/Personal/app/layout":["static/media/1a4aa50920b5315c-s.p.woff2","static/media/4cf2300e9c8272f7-s.p.woff2","static/media/93f479601ee12b01-s.p.woff2","static/media/e4af272ccee01ff0-s.p.woff2","static/media/eafabf029ad39a43-s.p.woff2","static/media/0484562807a97172-s.p.woff2","static/media/b957ea75a84b6ea7-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}

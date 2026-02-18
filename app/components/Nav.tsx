@@ -17,6 +17,10 @@ export default function Navbar() {
       name: "Projets",
     },
     {
+      path: "/certification",
+      name: "Certification",
+    },
+    {
       path: "/about",
       name: "À propos",
     },
