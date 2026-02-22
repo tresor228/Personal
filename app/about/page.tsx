@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 
 const About: React.FC = () => {
   const links = [
-    "https://drive.google.com/file/d/1G0JhxU9v_RGtRBxgwEedSuQ8cmEPh4qI/view?usp=sharing", // CV
+    "https://drive.google.com/file/d/1BoqV818iC8aipSHNhvQ6zrGWHzsU1Mv4/view?usp=sharing", // CV
     "https://www.linkedin.com/in/tresor-alade/",
     "https://github.com/tresor228",
   ];
