@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Archivo, Poppins, Inter } from "next/font/google";
 import "./globals.css";
-import Nav from "./components/Nav";
 import { ThemeProvider } from "./components/theme-provider";
 
 const geistSans = Geist({
@@ -22,19 +21,19 @@ const geistMono = Geist_Mono({
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "600", "700"], 
+  weight: ["400", "600", "700"],
 });
 
 const archivo = Archivo({
   variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["400", "600", "700"], 
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "Tresorfolio",
   description: "Mon Portfolio",
-  icons: {   
+  icons: {
     icon: "/logo1.png",
   },
 };
@@ -74,19 +73,14 @@ export default function RootLayout({
       </head>
       <body
         className={`${inter.variable} ${archivo.variable} ${geistMono.variable} antialiased overflow-x-hidden min-h-screen scroll-smooth`}
-      > 
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative w-full overflow-x-hidden">
-            <Nav />
-            <main className="w-full overflow-hidden">
-              {children}
-            </main>
-          </div>
+          {children}
         </ThemeProvider>
       </body>
     </html>
