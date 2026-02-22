@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 
 const About: React.FC = () => {
   const links = [
-    "https://drive.google.com/file/d/1BoqV818iC8aipSHNhvQ6zrGWHzsU1Mv4/view?usp=sharing", // CV
+    "https://drive.google.com/file/d/1ckRwZsWM5G-TEKY28aINVZcBreZidPXg/view?usp=sharing", // CV
     "https://www.linkedin.com/in/tresor-alade/",
     "https://github.com/tresor228",
   ];
@@ -43,14 +43,17 @@ const About: React.FC = () => {
               className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl"
             >
               <p className="leading-relaxed">
-                Étudiant en IA & Big Data, je suis attentif aux détails et je m’efforce de toujours fournir un travail de qualité.
+                Étudiant en IA & Big Data, je suis passionné par l'innovation technologique et je m’efforce de toujours fournir un travail de qualité avec une attention particulière aux détails.
               </p>
               <p className="mt-4">
-                La résolution de problèmes me passionne, et je suis toujours motivé à apprendre de nouvelles choses.
-                En dehors des heures de code, j'aime jouer aux jeux vidéo ou regarder des séries.
+                Actuellement, <strong>je suis à la recherche d'un stage</strong> pour mettre mes compétences au service de projets concrets et continuer à apprendre.
               </p>
-              <p className="mt-4 text-blue-500 dark:text-blue-400">
-                N'hésitez pas à me contacter si vous souhaitez collaborer sur quelque chose d'intéressant !
+              <p className="mt-4">
+                La résolution de problèmes me passionne, et je suis toujours motivé par de nouveaux défis.
+                En dehors du code, j'aime explorer les dernières tendances tech, jouer aux jeux vidéo ou regarder des séries.
+              </p>
+              <p className="mt-4 text-blue-500 dark:text-blue-400 font-medium">
+                Je suis également ouvert à <strong>toute collaboration sur des projets stimulants</strong>. N'hésitez pas à me contacter !
               </p>
             </div>
 

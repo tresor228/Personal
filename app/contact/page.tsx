@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { FaTelegram, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { CheckCircle2, XCircle } from 'lucide-react';
 
 const Contact = () => {
@@ -59,13 +59,12 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const cvLink = "https://drive.google.com/file/d/1BoqV818iC8aipSHNhvQ6zrGWHzsU1Mv4/view?usp=drive_link";
+  const cvLink = "https://drive.google.com/file/d/1ckRwZsWM5G-TEKY28aINVZcBreZidPXg/view?usp=sharing";
 
   const socials = [
-    { id: 1, name: "Telegram", icon: <FaTelegram />, link: "https://t.me/TDev01" },
-    { id: 2, name: "GitHub", icon: <FaGithub />, link: "https://github.com/tresor228" },
-    { id: 3, name: "LinkedIn", icon: <FaLinkedin />, link: "https://www.linkedin.com/in/tresor-alade/" },
-    { id: 4, name: "Twitter", icon: <FaTwitter />, link: "https://x.com/kodjo_alad65494?t=EiKhL1pQpRztgvX7BvTQmw&s=09" },
+    { id: 1, name: "GitHub", icon: <FaGithub />, link: "https://github.com/tresor228" },
+    { id: 2, name: "LinkedIn", icon: <FaLinkedin />, link: "https://www.linkedin.com/in/tresor-alade/" },
+    { id: 3, name: "Twitter", icon: <FaTwitter />, link: "https://x.com/kodjo_alad65494?t=EiKhL1pQpRztgvX7BvTQmw&s=09" },
   ];
 
   return (
@@ -178,11 +177,10 @@ const Contact = () => {
               {/* Message de confirmation */}
               {status.type && (
                 <div
-                  className={`mt-4 p-4 rounded-lg flex items-center gap-2 ${
-                    status.type === 'success'
-                      ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400'
-                      : 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400'
-                  }`}
+                  className={`mt-4 p-4 rounded-lg flex items-center gap-2 ${status.type === 'success'
+                    ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400'
+                    : 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400'
+                    }`}
                 >
                   {status.type === 'success' ? (
                     <CheckCircle2 className="h-5 w-5" />
