@@ -2,44 +2,19 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Github, ArrowUpRightIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Database, Layers } from "lucide-react";
 
 const Projects: React.FC = () => {
-  const projects = [
+  const diagrams = [
     {
       id: 1,
-      name: "Suivi de Dépense",
-      image: "/projects/depense.jpeg",
+      name: "Diagramme UML – Gestion Aéroport & Vols",
+      image: "/projects/sortie_page-0001.jpg",
       description:
-        "Suivi de Dépense est un outil web dédié à la gestion de vos finances. Il vous permet de suivre vos revenus et vos dépenses facilement, et d’avoir une vue claire sur vos flux financiers.",
-      link: "https://bytedepense.netlify.app/",
-      github: "https://github.com/tresor228/mini-depense-web.git",
-      tools: "Golang, JavaScript, HTML & CSS",
+        "Modélisation complète d'un système de gestion aéroportuaire avec diagramme de classes UML. Conception des entités (Aéroport, Vol, Vol Réel, Calendrier, Siège, Passager, Fidélité) avec leurs attributs, relations et cardinalités. Projet réalisé en respectant les principes MCD/MLD et la normalisation pour une traduction optimale en schéma relationnel.",
+      tools: "UML, MCD, MLD, Modelio",
       year: "2025",
-    },
-    {
-      id: 2,
-      name: "Pitch IA",
-      image: "/projects/pitch.png",
-      description:
-        "PICTCH IA est une plateforme qui utilise l’intelligence artificielle pour identifier et prédire la cible d’un projet",
-      link: "https://app-pitch.onrender.com",
-      github: "https://github.com/tresor228/Pitch-IA.git",
-      tools: "Golang, HTML & CSS",
-      year: "2025",
-    },
-    {
-      id: 3,
-      name: "Micro-Cours",
-      image: "/projects/micro.png",
-      description:
-        "Micro-Cours est une plateforme d'apprentissage en ligne qui propose des cours sur divers sujets.",
-      link: "https://micro-cour.vercel.app/",
-      github: "https://github.com/tresor228/micro-learn.git",
-      tools: "FIREBASE, JavaScript, HTML & CSS",
-      year: "2025",
+      entities: ["Aéroport", "Vol", "Vol Réel", "Calendrier", "Siège", "Passager", "Fidélité"],
     },
   ];
 
@@ -48,29 +23,35 @@ const Projects: React.FC = () => {
       <hr className="pt-5 text-zinc-700" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5">
         <h2 className="text-2xl sm:text-4xl font-bold uppercase" data-aos="fade-right">
-          Mes Projets
+          Projets de Modélisation (DBA)
         </h2>
         <p className="dark:text-gray-300 py-2" data-aos="fade-up">
-          Voici une sélection de projets qui démontrent ma passion pour le développement full-stack.
+          Diagrammes de conception de bases de données réalisés dans le cadre de mes études et projets en administration de bases de données.
         </p>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {projects.map((project, index) => (
+        {diagrams.map((project, index) => (
           <div
             key={project.id}
             data-aos="fade-up"
             data-aos-delay={index * 200}
             className="items-center grid grid-cols-1 md:grid-cols-2 gap-6 py-16"
           >
-            <div className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 p-2 shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="relative overflow-hidden rounded-lg">
+            <div className="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="p-4 border-b border-gray-200 dark:border-gray-600 flex items-center gap-2">
+                <Database className="h-5 w-5 text-blue-500" />
+                <span className="text-sm font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider">
+                  Schéma de conception
+                </span>
+              </div>
+              <div className="relative overflow-hidden rounded-b-xl p-4 bg-gray-50 dark:bg-gray-900/50">
                 <Image
                   src={project.image}
                   alt={project.name}
                   width={800}
                   height={600}
-                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] rounded-lg"
                   priority
                   quality={95}
                 />
@@ -78,38 +59,43 @@ const Projects: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{project.name}</h2>
-
-              <div className="bg-white dark:bg-gray-800/50 shadow-sm p-6 rounded-xl">
-                <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
+              <div className="flex items-center gap-2">
+                <Layers className="h-6 w-6 text-blue-500" />
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{project.name}</h2>
               </div>
 
-              <div className="bg-white dark:bg-gray-800/50 shadow-sm p-6 rounded-xl space-y-4">
-                <p className="text-xl font-semibold text-gray-900 dark:text-gray-300">Informations du projet</p>
+              <div className="bg-white dark:bg-gray-800/50 shadow-sm p-6 rounded-xl border border-gray-200 dark:border-gray-600">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{project.description}</p>
+              </div>
+
+              <div className="bg-white dark:bg-gray-800/50 shadow-sm p-6 rounded-xl space-y-4 border border-gray-200 dark:border-gray-600">
+                <p className="text-lg font-semibold text-gray-900 dark:text-gray-300 flex items-center gap-2">
+                  <Database className="h-5 w-5 text-blue-500" />
+                  Détails du modèle
+                </p>
                 <div className="flex justify-between items-center">
                   <p className="text-gray-600 dark:text-gray-300">Année</p>
-                  <p className="text-gray-800 dark:text-gray-200">{project.year}</p>
+                  <p className="text-gray-800 dark:text-gray-200 font-medium">{project.year}</p>
                 </div>
                 <hr className="border-gray-200 dark:border-gray-700" />
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-start gap-4">
                   <p className="text-gray-600 dark:text-gray-300">Outils</p>
-                  <p className="text-gray-800 dark:text-gray-200">{project.tools}</p>
+                  <p className="text-gray-800 dark:text-gray-200 font-medium text-right">{project.tools}</p>
                 </div>
-              </div>
-
-              <div className="flex flex-wrap gap-4 pt-4 text-white dark:text-gray-100">
-                <Link href={project.github} target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-blue-500 hover:bg-blue-600 transition-colors duration-200 rounded-full">
-                    Voir sur Github
-                    <Github className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-blue-500 hover:bg-blue-600 transition-colors duration-200 rounded-full">
-                    Démo en Direct
-                    <ArrowUpRightIcon className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <hr className="border-gray-200 dark:border-gray-700" />
+                <div>
+                  <p className="text-gray-600 dark:text-gray-300 mb-2">Entités modélisées</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.entities.map((entity, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200"
+                      >
+                        {entity}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

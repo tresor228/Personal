@@ -1,169 +1,89 @@
 export const runtime = 'nodejs';
 import { NextResponse } from 'next/server';
 
-const OPENAI_KEY = process.env.OPENAI_API_KEY;
-const HF_TOKEN = process.env.HF_TOKEN;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-async function callHuggingFace(message: string): Promise<string> {
-  if (!HF_TOKEN) {
-    throw new Error('HF_TOKEN manquante');
+import { GoogleGenAI } from '@google/genai';
+import path from 'path';
+import fs from 'fs';
+
+async function callGemini(message: string, history: any[] = []): Promise<string> {
+  if (!GEMINI_API_KEY) {
+    throw new Error('GEMINI_API_KEY manquante');
   }
 
-  const systemPrompt = `Vous êtes l'assistant conversationnel du portfolio de Trésor. Répondez en français, de façon claire et utile. Si la question porte sur le portfolio, répondez en vous basant sur les informations connues. Sinon, fournissez une aide générale.`;
+  // Load the portfolio data
+  const dataPath = path.join(process.cwd(), 'app/api/chatbot/portfolio_data.json');
+  let portfolioData = "Aucune donnée de portfolio trouvée.";
+  try {
+    if (fs.existsSync(dataPath)) {
+      portfolioData = fs.readFileSync(dataPath, 'utf8');
+      // Nettoyer les caractères * et # des données entrantes au cas où
+      portfolioData = portfolioData.replace(/[*#]/g, '');
+    }
+  } catch (error) {
+    console.warn("Erreur chargement données portfolio:", error);
+  }
 
-  const payload = {
-    inputs: `${systemPrompt}\n\nUtilisateur: ${message}\n\nAssistant:`,
-    parameters: {
-      max_new_tokens: 200,
-      temperature: 0.7,
-      do_sample: true,
-    },
-  };
+  const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+  const systemInstruction = `Tu es l'assistant IA exclusif de Trésor. Tu réponds aux recruteurs et visiteurs en utilisant UNIQUEMENT le contenu du portfolio fourni ci-dessous en format JSON.
+Ne JAMAIS utiliser les caractères * ou # dans tes réponses, même pour faire des listes ou mettre en gras. Utilise des tirets (-) pour les listes.
+Les réponses doivent être professionnelles, naturelles, claires, concises et chaleureuses.
+IMPORTANT: L'historique de la conversation t'est fourni. Si tu as déjà salué l'utilisateur ou s'il s'agit d'une suite de conversation, ne dis PLUS "Bonjour" ou "Comment puis-je vous aider". Réponds directement et naturellement à la question.
+Si on te pose une question hors contexte du portfolio, réponds simplement que tu es là pour parler des compétences et projets de Trésor.
 
-  const resp = await fetch('https://router.huggingface.co/hf-inference/models/microsoft/DialoGPT-medium', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${HF_TOKEN}`,
-    },
-    body: JSON.stringify(payload),
+DONNÉES DU PORTFOLIO :
+${portfolioData}`;
+
+  const contents = history.map((item: any) => ({
+    role: item.role === 'user' ? 'user' : 'model',
+    parts: [{ text: item.text }]
+  }));
+  contents.push({ role: 'user', parts: [{ text: message }] });
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: contents,
+    config: {
+      systemInstruction: systemInstruction,
+      temperature: 0.3, // Température plus basse pour forcer la fidélité aux données
+      maxOutputTokens: 800
+    }
   });
 
-  const text = await resp.text();
-  let j: any = null;
-  try { j = JSON.parse(text); } catch (e) { j = null; }
-
-  if (!resp.ok) {
-    // Gestion plus claire des erreurs Hugging Face
-    if (resp.status === 401) {
-      throw new Error(
-        "HF_TOKEN invalide ou expiré. Vérifiez votre token sur https://huggingface.co/settings/tokens et mettez à jour la variable HF_TOKEN dans votre fichier .env.local."
-      );
-    }
-    if (resp.status === 403) {
-      throw new Error(
-        "Accès refusé à l’API Hugging Face. Vérifiez que votre compte et votre token ont les droits nécessaires pour utiliser l’inference API."
-      );
-    }
-    throw new Error(`Erreur Hugging Face (${resp.status}): ${text}`);
+  if (!response.text) {
+    throw new Error("Réponse Gemini vide ou au format inattendu.");
   }
 
-  const reply = j?.[0]?.generated_text || j?.generated_text || 'Réponse HF non disponible.';
-  // Nettoyer la réponse (supprimer le prompt répété)
-  const cleanReply = reply.replace(`${systemPrompt}\n\nUtilisateur: ${message}\n\nAssistant:`, '').trim();
-  return cleanReply || 'Réponse HF vide.';
+  // Filtrer brutalement les * et # de la sortie générée
+  const cleanReply = response.text.replace(/[*#]/g, '').trim();
+
+  return cleanReply;
 }
 
 export async function POST(req: Request) {
   try {
-    const { message } = await req.json();
+    const { message, history } = await req.json();
 
     if (!message || typeof message !== 'string') {
       return NextResponse.json({ error: 'Message invalide' }, { status: 400 });
     }
 
-    // Allow temporary override of the OpenAI key via request header for testing (x-openai-key).
-    // WARNING: ne JAMAIS utiliser cela en production — uniquement pour des tests locaux.
-    const overrideKey = req.headers.get('x-openai-key');
-    const usedKey = overrideKey || OPENAI_KEY;
-
-    // Si aucune clé OpenAI n'est configurée mais qu'un token Hugging Face existe,
-    // on utilise directement Hugging Face pour éviter toute erreur de quota OpenAI.
-    if (!usedKey && HF_TOKEN) {
-      try {
-        const hfReply = await callHuggingFace(message);
-        return NextResponse.json({ reply: hfReply, source: 'huggingface' });
-      } catch (hfErr) {
-        console.error('HF direct failed:', hfErr);
-        const msg =
-          hfErr instanceof Error
-            ? hfErr.message
-            : 'Erreur lors de l’appel au modèle Hugging Face.';
-        return NextResponse.json(
-          { error: msg },
-          { status: 500 }
-        );
-      }
-    }
-
-    // Aucun fournisseur disponible : on retourne une erreur claire en français.
-    if (!usedKey && !HF_TOKEN) {
-      return NextResponse.json(
-        {
-          error:
-            "Aucune clé de modèle d'IA n'est configurée. Ajoutez soit OPENAI_API_KEY, soit HF_TOKEN dans votre fichier .env.local.",
-        },
-        { status: 500 }
-      );
-    }
-
     try {
-      const systemPrompt = `Vous êtes l'assistant conversationnel professionnel du portfolio de Trésor. Répondez en français, de façon claire, concise et utile. Si la question porte sur le portfolio, répondez en vous basant sur les informations connues. Sinon, fournissez une aide générale pertinente et proposez des questions de clarification ou des actions concrètes.`;
+      const geminiReply = await callGemini(message, history || []);
+      return NextResponse.json({ reply: geminiReply, source: 'gemini' });
+    } catch (geminiErr: any) {
+      console.error('Gemini direct failed:', geminiErr);
+      let msg = geminiErr instanceof Error ? geminiErr.message : 'Erreur lors de l’appel au modèle Gemini.';
 
-      const payload = {
-        model: 'gpt-3.5-turbo',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: message },
-        ],
-        temperature: 0.7,
-        max_tokens: 800,
-      };
-
-      const resp = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${usedKey}`,
-        },
-        body: JSON.stringify(payload),
-      });
-      const text = await resp.text();
-      let j: any = null;
-      try { j = JSON.parse(text); } catch (e) { j = null; }
-
-      if (!resp.ok) {
-        // Log detailed info to help diagnosis (do NOT log the key)
-        console.error('OpenAI responded with error', { status: resp.status, statusText: resp.statusText, body: j || text });
-        const err = j?.error || {};
-        let messageErr = err?.message || text || 'Erreur OpenAI non détaillée';
-        const type = err?.type;
-        const code = err?.code;
-        const status = code === 'insufficient_quota' ? 402 : resp.status || 502;
-
-        // Message plus clair pour le cas de quota dépassé
-        if (code === 'insufficient_quota') {
-          messageErr =
-            "Le quota de votre clé OpenAI est dépassé. Rendez-vous sur https://platform.openai.com/account/billing pour mettre à jour la facturation ou configurez un autre fournisseur (par ex. HF_TOKEN pour Hugging Face).";
-        }
-
-        // Fallback vers Hugging Face si quota dépassé ET token disponible
-        if (code === 'insufficient_quota' && HF_TOKEN) {
-          console.log('OpenAI quota exceeded, trying Hugging Face fallback...');
-          try {
-            const hfReply = await callHuggingFace(message);
-            return NextResponse.json({ reply: hfReply, source: 'huggingface' });
-          } catch (hfErr) {
-            console.error('HF fallback failed:', hfErr);
-            const msg =
-              hfErr instanceof Error
-                ? hfErr.message
-                : 'Quota OpenAI dépassé et fallback Hugging Face échoué.';
-            return NextResponse.json({ error: msg }, { status: 500 });
-          }
-        }
-
-        return NextResponse.json({ error: messageErr, type, code }, { status });
+      // Capter l'erreur 429 "Quota exceeded"
+      if (msg.includes('429') || msg.includes('Quota exceeded')) {
+        return NextResponse.json({ error: "Votre compte Gemini a atteint la limite de requêtes gratuites. Vous devez configurer la facturation ou patienter." }, { status: 429 });
       }
 
-      const reply = j?.choices?.[0]?.message?.content?.trim() || null;
-      // Log success minimally
-      console.log('OpenAI OK', { model: payload.model, replyPresent: Boolean(reply) });
-      return NextResponse.json({ reply: reply || 'Aucune réponse fournie par OpenAI.' });
-    } catch (err) {
-      console.error('Erreur OpenAI:', err);
-      return NextResponse.json({ error: 'Erreur lors de l\'appel à OpenAI' }, { status: 500 });
+      return NextResponse.json({ error: msg }, { status: 500 });
     }
+
   } catch (error) {
     console.error('chatbot error:', error);
     return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 });

@@ -29,9 +29,9 @@ const Page: React.FC = () => {
     return (
       <div className="w-full overflow-hidden text-zinc-800 dark:text-zinc-100">
         <Presentation />
-        <Projects />
         <About />
         <Skills />
+        <Projects />
         <Certification />
         <Contact />
       </div>
@@ -41,9 +41,9 @@ const Page: React.FC = () => {
   return (
     <div className="w-full overflow-hidden text-zinc-800 dark:text-zinc-100">
       <Presentation />
-      <Projects />
       <About />
       <Skills />
+      <Projects />
       <Certification />
       <Contact />
       <ChatBot />

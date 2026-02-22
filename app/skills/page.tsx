@@ -1,26 +1,50 @@
 "use client";
 
 import React from "react";
-import {  FaJs, FaGit } from "react-icons/fa";
+import { FaDatabase } from "react-icons/fa";
+import { LuDatabaseBackup } from "react-icons/lu";
 import {
   SiGo,
   SiMysql,
-  SiReact,
+  SiOracle,
   SiPostgresql,
+  SiDocker,
+  SiGit,
+  SiGithub,
+  SiGitlab,
+  SiUml,
+  SiPostman,
   SiSupabase,
-  SiPostman, // Ajouté ici
+  SiReact,
 } from "react-icons/si";
 
 const Skills: React.FC = () => {
   const skills = [
-    { id: 1, name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
-    { id: 2, name: "Git", icon: <FaGit className="text-red-500" /> },
+    // Bases de données
+    { id: 1, name: "Oracle", icon: <SiOracle className="text-red-600" /> },
+    { id: 2, name: "SQL Server", icon: <FaDatabase className="text-red-500" /> },
     { id: 3, name: "PostgreSQL", icon: <SiPostgresql className="text-blue-600" /> },
-    { id: 4, name: "Go", icon: <SiGo className="text-cyan-500" /> },
-    { id: 5, name: "Postman", icon: <SiPostman className="text-orange-500" /> }, // Correction ici
-    { id: 6, name: "Supabase", icon: <SiSupabase className="text-teal-400" /> },
-    { id: 7, name: "React", icon: <SiReact className="text-blue-500" /> },
-    { id: 8, name: "Mysql", icon: <SiMysql className="text-blue-500" /> },
+    { id: 4, name: "SQL", icon: <FaDatabase className="text-sky-500" /> },
+    { id: 5, name: "Azure SQL", icon: <FaDatabase className="text-blue-500" /> },
+    { id: 6, name: "MySQL", icon: <SiMysql className="text-blue-600" /> },
+    // Modélisation
+    { id: 7, name: "UML (MCD, MLD)", icon: <SiUml className="text-purple-500" /> },
+    { id: 8, name: "Normalisation", icon: <FaDatabase className="text-indigo-500" /> },
+    // Outils & DevOps
+    { id: 9, name: "Docker", icon: <SiDocker className="text-blue-400" /> },
+    { id: 10, name: "Git", icon: <SiGit className="text-orange-600" /> },
+    { id: 11, name: "GitHub", icon: <SiGithub className="text-gray-800 dark:text-gray-200" /> },
+    { id: 12, name: "GitLab", icon: <SiGitlab className="text-orange-500" /> },
+    { id: 13, name: "Modelio", icon: <SiUml className="text-emerald-500" /> },
+    // Programmation
+    { id: 14, name: "Golang", icon: <SiGo className="text-cyan-500" /> },
+    // DBA
+    { id: 15, name: "Sauvegarde/Restauration", icon: <LuDatabaseBackup className="text-green-600" /> },
+    { id: 16, name: "Optimisation SQL", icon: <FaDatabase className="text-teal-500" /> },
+    // Web (existants)
+    { id: 17, name: "React", icon: <SiReact className="text-blue-500" /> },
+    { id: 18, name: "Postman", icon: <SiPostman className="text-orange-500" /> },
+    { id: 19, name: "Supabase", icon: <SiSupabase className="text-teal-400" /> },
   ];
 
   return (

@@ -1,0 +1,92 @@
+{
+    "personal_info": {
+        "name": "Trésor ALADE",
+        "role": "DBA Junior",
+        "email": "bernardalade92@gmail.com",
+        "location": "Togo",
+        "availability": "Disponible pour de nouvelles opportunités",
+        "bio": "Je suis un développeur passionné par la création d'applications web modernes et performantes. Je maîtrise les technologies front-end et back-end pour offrir des expériences utilisateur complètes."
+    },
+    "skills": {
+        "database": [
+            "Oracle",
+            "SQL Server",
+            "PostgreSQL",
+            "SQL",
+            "Azure SQL",
+            "MySQL"
+        ],
+        "modelisation": [
+            "UML (MCD, MLD)",
+            "Normalisation"
+        ],
+        "outils": [
+            "Docker",
+            "Git",
+            "GitHub",
+            "GitLab",
+            "Modelio"
+        ],
+        "programmation": [
+            "Golang"
+        ],
+        "dba": [
+            "Sauvegarde/Restauration",
+            "Optimisation SQL"
+        ],
+        "web": [
+            "React",
+            "Postman",
+            "Supabase",
+            "JavaScript"
+        ]
+    },
+    "projects": [
+        {
+            "name": "Diagramme UML – Gestion Aéroport & Vols",
+            "description": "Modélisation complète d'un système de gestion aéroportuaire avec diagramme de classes UML. Conception des entités (Aéroport, Vol, Vol Réel, Calendrier, Siège, Passager, Fidélité) avec leurs attributs, relations et cardinalités. Projet réalisé en respectant les principes MCD/MLD et la normalisation.",
+            "technologies": [
+                "UML",
+                "MCD",
+                "MLD",
+                "Modelio"
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "role": "Développeur Full Stack",
+            "company": "Freelance",
+            "duration": "2023 - Présent",
+            "description": "Développement d'applications web sur mesure pour divers clients. Conception de bases de données, création d'API, et intégration front-end."
+        }
+    ],
+    "education": [
+        {
+            "degree": "Diplôme en Informatique Avancée",
+            "institution": "École Supérieure d'Informatique",
+            "year": "2023"
+        }
+    ],
+    "certifications": [
+        {
+            "name": "The Complete Web Developer in 2023: Zero to Mastery",
+            "issuer": "Udemy",
+            "year": "2023"
+        },
+        {
+            "name": "Node.js Essential Training",
+            "issuer": "LinkedIn Learning",
+            "year": "2023"
+        },
+        {
+            "name": "React - The Complete Guide",
+            "issuer": "Udemy",
+            "year": "2024"
+        }
+    ],
+    "languages": [
+        "Français (Natif)",
+        "Anglais (Professionnel)"
+    ]
+}

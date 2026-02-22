@@ -13,20 +13,20 @@ export default function Navbar() {
       name: "Accueil",
     },
     {
-      path: "/projects",
-      name: "Projets",
-    },
-    {
-      path: "/certification",
-      name: "Certification",
-    },
-    {
       path: "/about",
       name: "À propos",
     },
     {
       path: "/skills",
       name: "Compétences",
+    },
+    {
+      path: "/projects",
+      name: "Projets",
+    },
+    {
+      path: "/certification",
+      name: "Certification",
     },
     {
       path: "/contact",
@@ -41,8 +41,8 @@ export default function Navbar() {
         <div className='bg-white/90 dark:bg-gray-900/90 backdrop-blur-md rounded-xl border border-gray-200 dark:border-blue-400/30 shadow-lg'>
           <div className='flex justify-between items-center h-12 px-3 sm:px-5'>
             {/* Logo texte */}
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className='text-base sm:text-lg font-bold uppercase text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200'
               data-aos="fade-right"
             >
@@ -52,9 +52,9 @@ export default function Navbar() {
             {/* Menu Desktop */}
             <div className='hidden lg:flex items-center space-x-6'>
               {links.map((link, index) => (
-                <Link 
-                  key={link.path} 
-                  href={link.path} 
+                <Link
+                  key={link.path}
+                  href={link.path}
                   className='text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 text-sm font-medium'
                   data-aos="fade-down"
                   data-aos-delay={index * 100}
@@ -72,8 +72,8 @@ export default function Navbar() {
               </div>
 
               {/* Menu Burger Mobile */}
-              <button 
-                onClick={() => setIsOpen(!isOpen)} 
+              <button
+                onClick={() => setIsOpen(!isOpen)}
                 className='lg:hidden text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200'
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,9 +85,9 @@ export default function Navbar() {
           {isOpen && (
             <div className='lg:hidden border-t border-gray-200 dark:border-gray-700 space-y-2 py-4 px-6 bg-white/50 dark:bg-gray-900/50'>
               {links.map((link) => (
-                <Link 
-                  key={link.path} 
-                  href={link.path} 
+                <Link
+                  key={link.path}
+                  href={link.path}
                   className='block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 py-2'
                   onClick={() => setIsOpen(false)}
                 >
