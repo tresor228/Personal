@@ -44,6 +44,8 @@ export const viewport = {
   initialScale: 1,
 }
 
+import Nav from "./components/Nav";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -80,9 +82,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="relative w-full overflow-x-hidden">
+            <Nav />
+            <main className="w-full overflow-hidden">
+              {children}
+            </main>
+          </div>
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
