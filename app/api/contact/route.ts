@@ -1,8 +1,6 @@
-// app/api/send-email/route.ts (ou pages/api/send-email.ts selon votre structure)
-
 export const runtime = 'nodejs';
 import { NextResponse } from 'next/server';
-import { transporter } from '@/lib/mailer';
+import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
@@ -27,73 +25,92 @@ export async function POST(req: Request) {
 
     console.log("Tentative d'envoi d'email...");
 
-    // Configuration de l'email
-    const mailOptions = {
-      from: process.env.EMAIL_USER, // Utilisez votre email configuré
-      replyTo: email, // L'email de la personne qui envoie
-      to: 'bernardalade92@gmail.com',
-      subject: `Nouveau message de ${name} - ${subject}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
-            Nouveau message de contact
-          </h2>
-          <div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
-            <p><strong>Nom :</strong> ${name}</p>
-            <p><strong>Email :</strong> ${email}</p>
-            <p><strong>Sujet :</strong> ${subject}</p>
-          </div>
-          <div style="margin: 20px 0;">
-            <h3 style="color: #333;">Message :</h3>
-            <div style="background-color: #fff; padding: 15px; border-left: 4px solid #007bff; border-radius: 3px;">
-              ${message.replace(/\n/g, '<br>')}
-            </div>
-          </div>
-          <hr style="margin: 30px 0; border: 0; height: 1px; background: #ddd;">
-          <p style="color: #666; font-size: 12px; text-align: center;">
-            Ce message a été envoyé depuis votre portfolio le ${new Date().toLocaleString('fr-FR')}
-          </p>
-        </div>
-      `,
-      text: `
-        Nouveau message de contact
-        
-        Nom : ${name}
-        Email : ${email}
-        Sujet : ${subject}
-        
-        Message :
-        ${message}
-        
-        Envoyé le ${new Date().toLocaleString('fr-FR')}
-      `
-    };
+    // Vérification et nettoyage des variables d'environnement
+    const userEmail = process.env.EMAIL_USER?.trim();
+    const userPass = process.env.EMAIL_PASS?.trim();
 
-    // Envoi de l'email
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Email envoyé avec succès ! ID :', info.messageId);
-
-    return NextResponse.json({ 
-      success: true,
-      message: 'Email envoyé avec succès',
-      messageId: info.messageId 
-    });
-
-  } catch (error) {
-    console.error("Erreur détaillée lors de l'envoi d'email :", error);
-    
-    // Log plus détaillé pour le debugging
-    if (error instanceof Error) {
-      console.error("Message d'erreur :", error.message);
-      console.error("Stack trace :", error.stack);
+    if (!userEmail || !userPass) {
+      console.error('ERREUR : Variables EMAIL_USER ou EMAIL_PASS manquantes dans .env.local');
+      return NextResponse.json(
+        { error: 'Le serveur de messagerie n\'est pas configuré. Veuillez vérifier le fichier .env.local.' },
+        { status: 500 }
+      );
     }
 
+    // Configuration de l'email
+    const mailOptions = {
+      from: userEmail,
+      replyTo: email,
+      to: 'bernardalade92@gmail.com',
+      subject: `[STUDIO PORTFOLIO] ${subject} - de ${name}`,
+      html: `
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
+          <div style="background-color: #2563eb; padding: 24px; color: white;">
+            <h1 style="margin: 0; font-size: 20px;">Nouveau Message de Contact</h1>
+          </div>
+          <div style="padding: 24px; background-color: white;">
+            <p style="margin-top: 0; color: #6b7280; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Expéditeur</p>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">${name}</p>
+            <p style="color: #2563eb; margin-top: 0;">${email}</p>
+            
+            <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 24px 0;">
+            
+            <p style="color: #6b7280; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Sujet</p>
+            <p style="font-size: 16px; color: #111827; margin-top: 4px;">${subject}</p>
+            
+            <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 24px 0;">
+            
+            <p style="color: #6b7280; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Message</p>
+            <div style="background-color: #f9fafb; padding: 16px; border-radius: 8px; color: #374151; line-height: 1.6; white-space: pre-wrap;">${message}</div>
+          </div>
+          <div style="background-color: #f3f4f6; padding: 16px; text-align: center; font-size: 12px; color: #9ca3af;">
+            Envoyé le ${new Date().toLocaleString('fr-FR')} depuis votre portfolio.
+          </div>
+        </div>
+      `,
+      text: `Nouveau message de contact\n\nNom: ${name}\nEmail: ${email}\nSujet: ${subject}\n\nMessage:\n${message}`
+    };
+
+    try {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: userEmail,
+          pass: userPass,
+        },
+      });
+
+      const info = await transporter.sendMail(mailOptions);
+      console.log('✅ Email envoyé avec succès ! ID :', info.messageId);
+
+      return NextResponse.json({
+        success: true,
+        message: 'Votre message a été envoyé avec succès !'
+      });
+    } catch (mailError: any) {
+      console.error("❌ Erreur technique d'envoi :");
+      console.error(mailError);
+
+      let errorMessage = "Une erreur est survenue lors de l'envoi de l'email.";
+
+      if (mailError.code === 'EAUTH') {
+        errorMessage = "Erreur d'authentification Gmail (Bad Credentials). Veuillez vérifier votre Mot de Passe d'Application.";
+      }
+
+      return NextResponse.json(
+        {
+          error: errorMessage,
+          details: mailError.message,
+          code: mailError.code
+        },
+        { status: 500 }
+      );
+    }
+
+  } catch (error) {
+    console.error("❌ Erreur critique API :", error);
     return NextResponse.json(
-    { 
-      success: false,
-      error: "Erreur lors de l'envoi de l'email. Veuillez réessayer.",
-      details: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.message : String(error)) : undefined
-    },
+      { error: "Une erreur critique est survenue sur le serveur." },
       { status: 500 }
     );
   }

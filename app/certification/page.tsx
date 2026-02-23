@@ -17,30 +17,53 @@ type CertificationItem = {
 };
 
 const certifications: CertificationItem[] = [
+
   {
     id: 1,
-    name: "Vibe Coding",
-    image: "/certificats/VibeCoding.jpg",
-    description:
-      "Vibe Coding est un cours de programmation qui vous apprend à programmer en JavaScript.",
-    link: "https://www.sololearn.com/certificates/CC-1DTZ4THF",
-    training: "Sololearn",
-    tools: ["Cursor", "Lovable", "Bolt", "V0", "Replit" ,"Claude AI"],
-    year: 2026,
-  },
-  {
-    id: 2,
     name: "Voyage dans le monde des BDD",
     image: "/certificats/Voyage.jpg",
     description:
       "“Voyage dans le monde des bases de données” est un cours centré sur l’administration de SQL Server, PostgreSQL, Azure SQL, ainsi que l’exploration de MongoDB et Oracle",
     link: "https://www.udemy.com/certificate/UC-d7d58ee9-6b8b-48d3-a70b-e786310a07f8/",
     training: "Udemy",
-    tools: ["MySQL", "PostgreSQL", "Postgresql", "Azure SQL" , "Administration Sql Server | Postgresql", "Mongo DB"],
+    tools: ["MySQL", "PostgreSQL", "Azure SQL", "Administration Sql Server | Postgresql", "Mongo DB"],
+    year: 2026,
+  },
+  {
+    id: 2,
+    name: "Uml modelisation",
+    image: "/certificats/Modelisation database.jpg",
+    description:
+      "Uml modelisation est un cours qui vous apprend à créer des modèles UML.",
+    link: "https://www.linkedin.com/learning/certificates/69f2cb265336c142e1cc3d3a76852472f486890f721145342bcecf79aba72723?trk=share_certificate",
+    training: "Linkedin Learning",
+    tools: ["UML"],
     year: 2026,
   },
   {
     id: 3,
+    name: "Oracle Administration",
+    image: "/certificats/Administration oracle.jpg",
+    description:
+      "Oracle Administration est un cours qui vous apprend à administrer les bases de données Oracle.",
+    link: "https://www.linkedin.com/learning/certificates/4421288fa80895c565b15634e2687dbd198e56c2993291e354a0c660a8910c6b?trk=share_certificate",
+    training: "Linkedin Learning",
+    tools: ["Administration Oracle"],
+    year: 2026,
+  },
+  {
+    id: 4,
+    name: "Modelisation des Base de données",
+    image: "/certificats/uml modelisation.jpg",
+    description:
+      "Modelisation des Base de données est un cours qui vous apprend à créer des modèles de bases de données.",
+    link: "https://www.linkedin.com/learning/certificates/103b4440d4afd48f2d8577fa21e053e2ee81cedb9a5278375178ffca3e2ac61f?trk=share_certificate",
+    training: "Linkedin Learning",
+    tools: ["MCD", "MLD"],
+    year: 2026,
+  },
+  {
+    id: 5,
     name: "Prompt Engineering",
     image: "/certificats/prompt.png",
     description:
@@ -50,6 +73,28 @@ const certifications: CertificationItem[] = [
     tools: ["Prompt", "IA", "GenAI", "LLM"],
     year: 2026,
   },
+  {
+    id: 6,
+    name: "Vibe Coding",
+    image: "/certificats/VibeCoding.jpg",
+    description:
+      "Vibe Coding est un cours de programmation qui vous apprend à programmer en JavaScript.",
+    link: "https://www.sololearn.com/certificates/CC-1DTZ4THF",
+    training: "Sololearn",
+    tools: ["Cursor", "Lovable", "Bolt", "V0", "Replit", "Claude AI"],
+    year: 2026,
+  },
+  {
+    id: 7,
+    name: "Essentiel Golang",
+    image: "/certificats/certification_golang.jpeg",
+    description:
+      "Essentiel Golang est un cours qui vous apprend à créer des fondamentaux en Go.",
+    link: "https://www.linkedin.com/learning/certificates/18e63ec4bc7a75219ff3a219b5237277e9c2f66c73cfc5ce38932c3d31e20e84",
+    training: "Linkedin Learning",
+    tools: ["Go"],
+    year: 2025,
+  }
 ];
 
 const Certification: React.FC = () => {

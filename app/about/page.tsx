@@ -10,7 +10,7 @@ const About: React.FC = () => {
   const links = [
     "https://drive.google.com/file/d/1ckRwZsWM5G-TEKY28aINVZcBreZidPXg/view?usp=sharing", // CV
     "https://www.linkedin.com/in/tresor-alade/",
-    "https://github.com/tresor228",
+    "https://github.com/TresorAlad",
   ];
 
   const elements = [
@@ -32,29 +32,24 @@ const About: React.FC = () => {
               className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl"
             >
               <p className="text-xl leading-relaxed">
-                Administrateur Base de Données curieux et passionné, j’aime concevoir des sites web modernes, rapides et faciles à utiliser.
-                Mon objectif : allier performance, accessibilité et élégance dans chaque projet.
+                Administrateur de bases de données curieux et passionné, je conçois des sites web modernes, rapides et accessibles, en alliant performance et élégance.
               </p>
-            </div>
 
-            <div
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl"
-            >
-              <p className="leading-relaxed">
-                Étudiant en IA & Big Data, je suis passionné par l'innovation technologique et je m’efforce de toujours fournir un travail de qualité avec une attention particulière aux détails.
-              </p>
-              <p className="mt-4">
-                Actuellement, <strong>je suis à la recherche d'un stage</strong> pour mettre mes compétences au service de projets concrets et continuer à apprendre.
-              </p>
-              <p className="mt-4">
-                La résolution de problèmes me passionne, et je suis toujours motivé par de nouveaux défis.
-                En dehors du code, j'aime explorer les dernières tendances tech, jouer aux jeux vidéo ou regarder des séries.
-              </p>
-              <p className="mt-4 text-blue-500 dark:text-blue-400 font-medium">
-                Je suis également ouvert à <strong>toute collaboration sur des projets stimulants</strong>. N'hésitez pas à me contacter !
-              </p>
+              <div
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl"
+              >
+                <p className="leading-relaxed">
+                  Étudiant en IA & Big Data, je m’investis dans des projets innovants avec rigueur et souci du détail.
+                </p>
+                <p className="mt-4">
+                  <strong>À la recherche d’un stage</strong> pour appliquer mes compétences sur des projets concrets et continuer à progresser.
+                </p>
+                <p className="mt-4">
+                  Passionné par la résolution de problèmes et les nouvelles technologies, je reste motivé par les défis et ouvert aux collaborations.
+                </p>
+              </div>
             </div>
 
             <div
