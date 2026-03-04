@@ -75,6 +75,17 @@ const certifications: CertificationItem[] = [
   },
   {
     id: 6,
+    name: "MLH Hackaton 2026",
+    image: "/certificats/MLH Certification.png",
+    description:
+      "MLH Hackaton 2026 est un hackathon qui permet de développer des applications en utilisant l'API de Gemini.",
+    link: "https://drive.google.com/file/d/1YUuhGAh6h9PB_A-VhDmLOaETQTUh87WZ/view?usp=sharing",
+    training: "MLH",
+    tools: ["Gemini API"],
+    year: 2025,
+  },
+  {
+    id: 7,
     name: "Vibe Coding",
     image: "/certificats/VibeCoding.jpg",
     description:
@@ -85,7 +96,7 @@ const certifications: CertificationItem[] = [
     year: 2026,
   },
   {
-    id: 7,
+    id: 8,
     name: "Essentiel Golang",
     image: "/certificats/certification_golang.jpeg",
     description:
