@@ -50,7 +50,42 @@
                 "MCD",
                 "MLD",
                 "Modelio"
-            ]
+            ],
+            "category": "dba"
+        },
+        {
+            "name": "E-Commerce Modern Platform",
+            "description": "Une plateforme e-commerce complète avec panier, paiement sécurisé et tableau de bord administrateur. Focus sur la performance et l'expérience utilisateur.",
+            "technologies": [
+                "Next.js",
+                "Tailwind CSS",
+                "TypeScript",
+                "Stripe",
+                "Prisma"
+            ],
+            "category": "web"
+        },
+        {
+            "name": "SaaS Dashboard Analytics",
+            "description": "Tableau de bord de visualisation de données en temps réel avec des graphiques interactifs et une gestion avancée des utilisateurs.",
+            "technologies": [
+                "React",
+                "Chart.js",
+                "Firebase",
+                "Tailwind CSS"
+            ],
+            "category": "web"
+        },
+        {
+            "name": "Gestion Video Club (Desktop App)",
+            "description": "Application de gestion de location de cassettes vidéo avec interface JavaFX et base de données SQLite. Gestion des membres, stocks et retours.",
+            "technologies": [
+                "Java",
+                "JavaFX",
+                "SQLite",
+                "Maven"
+            ],
+            "category": "web"
         }
     ],
     "experience": [

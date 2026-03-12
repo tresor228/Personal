@@ -109,6 +109,9 @@ const certifications: CertificationItem[] = [
 ];
 
 const Certification: React.FC = () => {
+  const [showAll, setShowAll] = React.useState(false);
+  const displayedCertifications = showAll ? certifications : certifications.slice(0, 6);
+
   return (
     <div className="pt-20 w-full overflow-hidden">
       <hr className="pt-5 text-zinc-700" />
@@ -125,48 +128,48 @@ const Certification: React.FC = () => {
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
-          {certifications.map((cert, index) => (
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+          {displayedCertifications.map((cert, index) => (
             <div
               key={cert.id}
               data-aos="fade-up"
               data-aos-delay={index * 150}
-              className="flex flex-col bg-white dark:bg-gray-900/70 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 overflow-hidden"
+              className="flex flex-col bg-white dark:bg-gray-900/70 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 overflow-hidden h-full p-4"
             >
-              <div className="relative w-full h-52 overflow-hidden">
+              <div className="relative w-full h-40 overflow-hidden rounded-xl flex-shrink-0">
                 <Image
                   src={cert.image}
                   alt={cert.name}
                   fill
                   className="object-cover transition-transform duration-300 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
 
-              <div className="flex-1 flex flex-col p-5 space-y-3">
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              <div className="flex-1 flex flex-col pt-4 space-y-3">
+                <div className="flex items-start justify-between gap-3 h-14">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white line-clamp-2">
                     {cert.name}
                   </h3>
-                  <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-200">
+                  <span className="flex-shrink-0 px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 dark:bg-blue-900/40 dark:text-blue-200">
                     {cert.year}
                   </span>
                 </div>
 
-                <p className="text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2 h-8">
                   {cert.description}
                 </p>
 
                 <div className="mt-2">
-                  <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">
+                  <p className="text-[10px] uppercase font-bold text-gray-500 dark:text-gray-400 mb-1.5">
                     Outils & Technologies
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {cert.tools.map((tool) => (
                       <span
                         key={tool}
-                        className="px-2.5 py-1 rounded-full text-xs bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
+                        className="px-2 py-1 rounded bg-gray-50 dark:bg-zinc-800/50 text-gray-600 dark:text-gray-400 text-[9px] font-bold border border-gray-200/50 dark:border-zinc-700/50 uppercase tracking-tighter"
                       >
                         {tool}
                       </span>
@@ -174,8 +177,8 @@ const Certification: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-4 flex items-center justify-between gap-3">
-                  <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                <div className="mt-auto pt-4 flex items-center justify-between gap-3">
+                  <span className="text-xs font-bold text-blue-600 dark:text-blue-400">
                     {cert.training}
                   </span>
                   <Link
@@ -183,7 +186,7 @@ const Certification: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="rounded-full bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2">
+                    <Button className="rounded-full bg-blue-500 hover:bg-blue-600 text-white text-[10px] uppercase font-bold px-5 h-8">
                       Voir
                     </Button>
                   </Link>
@@ -192,6 +195,17 @@ const Certification: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {certifications.length > 6 && (
+          <div className="flex justify-center pt-10">
+            <Button
+              onClick={() => setShowAll(!showAll)}
+              className="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-10 uppercase font-bold text-sm h-11"
+            >
+              {showAll ? "Voir Moins" : "Voir Plus"}
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
