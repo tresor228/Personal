@@ -14,10 +14,14 @@
             "PostgreSQL",
             "SQL",
             "Azure SQL",
-            "MySQL"
+            "MySQL",
+            "SQLite",
+            "MongoDB"
         ],
         "modelisation": [
-            "UML (MCD, MLD)",
+            "UML",
+            "MCD",
+            "MLD",
             "Normalisation"
         ],
         "outils": [
@@ -25,25 +29,41 @@
             "Git",
             "GitHub",
             "GitLab",
-            "Modelio"
+            "Modelio",
+            "Maven",
+            "Postman"
         ],
         "programmation": [
-            "Golang"
+            "Golang",
+            "Java",
+            "JavaScript",
+            "TypeScript"
         ],
         "dba": [
             "Sauvegarde/Restauration",
-            "Optimisation SQL"
+            "Optimisation SQL",
+            "Administration Oracle",
+            "Administration SQL Server"
         ],
         "web": [
             "React",
-            "Postman",
+            "Next.js",
+            "Tailwind CSS",
             "Supabase",
-            "JavaScript"
+            "JavaFX"
+        ],
+        "ia_tools": [
+            "Prompt Engineering",
+            "Gemini API",
+            "Cursor",
+            "Claude AI",
+            "V0",
+            "Bolt"
         ]
     },
     "projects": [
         {
-            "name": "Diagramme UML – Gestion Aéroport & Vols",
+            "name": "Gestion Aéroport & Vols",
             "description": "Modélisation complète d'un système de gestion aéroportuaire avec diagramme de classes UML. Conception des entités (Aéroport, Vol, Vol Réel, Calendrier, Siège, Passager, Fidélité) avec leurs attributs, relations et cardinalités. Projet réalisé en respectant les principes MCD/MLD et la normalisation.",
             "technologies": [
                 "UML",
@@ -54,25 +74,24 @@
             "category": "dba"
         },
         {
-            "name": "E-Commerce Modern Platform",
-            "description": "Une plateforme e-commerce complète avec panier, paiement sécurisé et tableau de bord administrateur. Focus sur la performance et l'expérience utilisateur.",
+            "name": "Pitch AI",
+            "description": "Pitch AI est une plateforme qui analyse vos projet et vous donne les problèmes, solutions, Business Model, Canal de diffusion",
             "technologies": [
-                "Next.js",
-                "Tailwind CSS",
-                "TypeScript",
-                "Stripe",
-                "Prisma"
+                "Golang",
+                "HTML",
+                "CSS",
+                "JavaScript"
             ],
             "category": "web"
         },
         {
-            "name": "SaaS Dashboard Analytics",
-            "description": "Tableau de bord de visualisation de données en temps réel avec des graphiques interactifs et une gestion avancée des utilisateurs.",
+            "name": "Meteo",
+            "description": "Meteo est une application qui permet de visualiser les données météorologiques en temps réel.",
             "technologies": [
-                "React",
-                "Chart.js",
-                "Firebase",
-                "Tailwind CSS"
+                "Golang",
+                "HTML",
+                "CSS",
+                "JavaScript"
             ],
             "category": "web"
         },
@@ -86,14 +105,25 @@
                 "Maven"
             ],
             "category": "web"
+        },
+        {
+            "name": "Gestion de Salle Universitaire (Desktop App)",
+            "description": "Gestion de salle Universitaire est une application Desktop qui permet de gérer les salles universitaires et les réservations.",
+            "technologies": [
+                "Java",
+                "JavaFX",
+                "SQLite",
+                "Maven"
+            ],
+            "category": "web"
         }
     ],
     "experience": [
         {
-            "role": "Développeur Full Stack",
-            "company": "Freelance",
-            "duration": "2023 - Présent",
-            "description": "Développement d'applications web sur mesure pour divers clients. Conception de bases de données, création d'API, et intégration front-end."
+            "role": "Développeur Indépendant (Projets Personnels)",
+            "company": "Auto-formation & Projets Personnels",
+            "duration": "2024 - Présent",
+            "description": "Conception et développement d'applications web et desktop pour consolider mes compétences en DBA et développement fullstack. Focus sur la modélisation de bases de données, l'administration SQL et l'intégration de solutions basées sur l'IA."
         }
     ],
     "education": [
@@ -105,23 +135,48 @@
     ],
     "certifications": [
         {
-            "name": "The Complete Web Developer in 2023: Zero to Mastery",
+            "name": "Voyage dans le monde des BDD",
             "issuer": "Udemy",
-            "year": "2023"
+            "year": "2026"
         },
         {
-            "name": "Node.js Essential Training",
-            "issuer": "LinkedIn Learning",
-            "year": "2023"
+            "name": "Uml modelisation",
+            "issuer": "Linkedin Learning",
+            "year": "2026"
         },
         {
-            "name": "React - The Complete Guide",
-            "issuer": "Udemy",
-            "year": "2024"
+            "name": "Oracle Administration",
+            "issuer": "Linkedin Learning",
+            "year": "2026"
+        },
+        {
+            "name": "Modelisation des Base de données",
+            "issuer": "Linkedin Learning",
+            "year": "2026"
+        },
+        {
+            "name": "Prompt Engineering",
+            "issuer": "Sololearn",
+            "year": "2026"
+        },
+        {
+            "name": "MLH Hackaton 2026",
+            "issuer": "MLH",
+            "year": "2025"
+        },
+        {
+            "name": "Vibe Coding",
+            "issuer": "Sololearn",
+            "year": "2026"
+        },
+        {
+            "name": "Essentiel Golang",
+            "issuer": "Linkedin Learning",
+            "year": "2025"
         }
     ],
     "languages": [
         "Français (Natif)",
-        "Anglais (Professionnel)"
+        "Anglais (A2)"
     ]
 }
