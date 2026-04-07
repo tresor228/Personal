@@ -5,6 +5,11 @@
         "email": "bernardalade92@gmail.com",
         "location": "Togo",
         "availability": "Disponible pour de nouvelles opportunités",
+        "stats": {
+            "years_experience": "2+",
+            "satisfied_clients": "3+",
+            "delivered_projects": "5"
+        },
         "bio": "Développeur Backend avec 2 ans d'expérience, spécialisé dans la création de solutions robustes et évolutives. Je suis également Administrateur de Bases de Données (DBA) Junior, passionné par l'optimisation et la gestion des données."
     },
     "skills": {
