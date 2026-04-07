@@ -1,11 +1,11 @@
 {
     "personal_info": {
         "name": "Trésor ALADE",
-        "role": "DBA Junior",
+        "role": "Développeur Backend (2 ans d'exp) & DBA Junior",
         "email": "bernardalade92@gmail.com",
         "location": "Togo",
         "availability": "Disponible pour de nouvelles opportunités",
-        "bio": "Je suis un développeur passionné par la création d'applications web modernes et performantes. Je maîtrise les technologies front-end et back-end pour offrir des expériences utilisateur complètes."
+        "bio": "Développeur Backend avec 2 ans d'expérience, spécialisé dans la création de solutions robustes et évolutives. Je suis également Administrateur de Bases de Données (DBA) Junior, passionné par l'optimisation et la gestion des données."
     },
     "skills": {
         "database": [
@@ -120,10 +120,10 @@
     ],
     "experience": [
         {
-            "role": "Développeur Indépendant (Projets Personnels)",
-            "company": "Auto-formation & Projets Personnels",
-            "duration": "2024 - Présent",
-            "description": "Conception et développement d'applications web et desktop pour consolider mes compétences en DBA et développement fullstack. Focus sur la modélisation de bases de données, l'administration SQL et l'intégration de solutions basées sur l'IA."
+            "role": "Développeur Backend & Administrateur de Bases de Données (DBA) Junior",
+            "company": "Indépendant / Projets Professionnels",
+            "duration": "2024 - Présent (2 ans)",
+            "description": "2 ans d'expérience en développement Backend, spécialisé dans l'architecture système et l'optimisation logicielle. Compétences en administration de bases de données (Oracle, PostgreSQL, SQL Server) en tant que profil Junior."
         }
     ],
     "education": [

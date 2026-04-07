@@ -22,12 +22,48 @@ const Presentation = () => {
               <span className='pb-4'>Trésor ALADE</span>
             </p>
             <p className='dark:text-gray-300'>
-            Débutant en Administration Base de Données, passionné 
-            par la logique , l'administration et la gestion des bases de données
+            Développeur Backend avec 2 ans d'expérience et Administrateur de Bases de Données (DBA) Junior, passionné par la conception de systèmes robustes et performants.
             </p>
+
+            <div 
+              data-aos="fade-up" 
+              data-aos-delay="200"
+              className='flex flex-wrap gap-6 pt-8'
+            >
+              <div className='flex items-center gap-3 bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-100 dark:border-gray-700'>
+                <div className='p-2 bg-blue-100 dark:bg-blue-900/30 rounded-md text-blue-500'>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </div>
+                <div>
+                  <div className='text-xl font-bold text-gray-900 dark:text-white'>2+ Ans</div>
+                  <div className='text-xs text-gray-500 dark:text-gray-400 uppercase font-medium'>Expérience</div>
+                </div>
+              </div>
+
+              <div className='flex items-center gap-3 bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-100 dark:border-gray-700'>
+                <div className='p-2 bg-green-100 dark:bg-green-900/30 rounded-md text-green-500'>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div>
+                  <div className='text-xl font-bold text-gray-900 dark:text-white'>3+ Clients</div>
+                  <div className='text-xs text-gray-500 dark:text-gray-400 uppercase font-medium'>Satisfaits</div>
+                </div>
+              </div>
+
+              <div className='flex items-center gap-3 bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-100 dark:border-gray-700'>
+                <div className='p-2 bg-orange-100 dark:bg-orange-900/30 rounded-md text-orange-500'>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="13 2 13 9 20 9"></polyline><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path></svg>
+                </div>
+                <div>
+                  <div className='text-xl font-bold text-gray-900 dark:text-white'>5+ Projets</div>
+                  <div className='text-xs text-gray-500 dark:text-gray-400 uppercase font-medium'>Livrés</div>
+                </div>
+              </div>
+            </div>
+
             <div data-aos="fade-right"
                data-aos-delay="100"
-               className='flex items-center space-x-4 pt-5'>
+               className='flex items-center space-x-4 pt-10'>
                <Link href={'/contact'}>
                 <Button
                   className='bg-blue-500 text-white hover:bg-blue-600 rounded-full'

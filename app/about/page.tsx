@@ -32,7 +32,7 @@ const About: React.FC = () => {
               className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl"
             >
               <p className="text-xl leading-relaxed">
-                Administrateur de bases de données curieux et passionné, je conçois des sites web modernes, rapides et accessibles, en alliant performance et élégance.
+                Développeur Backend avec 2 ans d'expérience et Administrateur de Bases de Données (DBA) Junior, spécialisé dans la conception de systèmes performants et sécurisés.
               </p>
 
               <div
@@ -44,7 +44,7 @@ const About: React.FC = () => {
                   Étudiant en IA & Big Data, je m’investis dans des projets innovants avec rigueur et souci du détail.
                 </p>
                 <p className="mt-4">
-                  <strong>À la recherche d’un stage</strong> pour appliquer mes compétences sur des projets concrets et continuer à progresser.
+                  <strong>À la recherche de nouvelles opportunités</strong> pour mettre mon expertise au service de projets ambitieux.
                 </p>
                 <p className="mt-4">
                   Passionné par la résolution de problèmes et les nouvelles technologies, je reste motivé par les défis et ouvert aux collaborations.
