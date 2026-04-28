@@ -56,7 +56,6 @@ export default function Page() {
         <About />
         <Skills />
         <Projects />
-        <Certification />
         <Contact />
         <ChatBot />
       </div>

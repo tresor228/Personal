@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Database, Layers, Github, Globe, Search, Layout } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useLanguage } from "@/app/components/LanguageContext";
 
 type ProjectCategory = "all" | "dba" | "web";
 
@@ -34,6 +35,7 @@ interface WebProject extends BaseProject {
 type Project = DBAProject | WebProject;
 
 const Projects: React.FC = () => {
+  const { t } = useLanguage();
   const [filter, setFilter] = useState<ProjectCategory>("all");
   const [showAll, setShowAll] = useState(false);
 
@@ -105,61 +107,62 @@ const Projects: React.FC = () => {
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
 
   return (
-    <div className="pt-10 pb-12 w-full overflow-hidden">
-      <hr className="pt-20 text-zinc-700" />
+    <div className="py-10 w-full overflow-hidden">
+      <div className="section-divider mb-5" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-8">
-          {/* Section Title & Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-4">
-              <h2
-                className="text-3xl font-bold uppercase text-gray-900 dark:text-white"
-                data-aos="fade-right"
-              >
-                Mes Projets
-              </h2>
-              <p
-                className="text-gray-600 dark:text-gray-400 max-w-2xl"
-                data-aos="fade-right"
-                data-aos-delay="100"
-              >
-                Découvrez mes réalisations en développement web et conception de bases de données (DBA).
-                Chaque projet reflète mon engagement envers la qualité et la performance.
-              </p>
-            </div>
-
-            {/* Filters */}
-            <div
-              className="flex flex-wrap gap-2"
-              data-aos="fade-left"
+          {/* Section Header */}
+          <div className="mb-6 flex flex-col gap-3">
+            <span data-aos="fade-right" className="text-[11px] font-black text-[#2DD4BF] uppercase tracking-[0.3em]">
+              — {t("projects.subtitle")}
+            </span>
+            <h2
+              className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-gray-900 dark:text-white"
+              data-aos="fade-right"
+              data-aos-delay="100"
             >
+              {t("projects.title")}
+            </h2>
+            <p
+              className="text-gray-600 dark:text-gray-400 max-w-2xl mt-2"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              {t("projects.description")}
+            </p>
+          </div>
+
+          {/* Filters */}
+          <div
+            className="flex flex-wrap gap-3 pb-8 border-b border-gray-100 dark:border-white/5"
+            data-aos="fade-left"
+          >
               <Button
                 variant={filter === "all" ? "default" : "outline"}
                 onClick={() => { setFilter("all"); setShowAll(false); }}
-                className={`rounded-full uppercase text-xs font-bold transition-all ${filter === "all" ? "bg-blue-500 hover:bg-blue-600" : "border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+                className={`rounded-full uppercase text-[10px] font-black tracking-widest h-10 px-6 transition-all ${filter === "all" ? "bg-[#2DD4BF] hover:bg-[#0d9488] text-white shadow-lg shadow-[#2DD4BF]/20" : "border-[#2DD4BF]/30 text-[#2DD4BF] hover:bg-[#2DD4BF]/5"
                   }`}
               >
-                Tous
+                {t("projects.all")}
               </Button>
               <Button
                 variant={filter === "web" ? "default" : "outline"}
                 onClick={() => { setFilter("web"); setShowAll(false); }}
-                className={`rounded-full uppercase text-xs font-bold transition-all ${filter === "web" ? "bg-blue-500 hover:bg-blue-600" : "border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+                className={`rounded-full uppercase text-[10px] font-black tracking-widest h-10 px-6 transition-all ${filter === "web" ? "bg-[#2DD4BF] hover:bg-[#0d9488] text-white shadow-lg shadow-[#2DD4BF]/20" : "border-[#2DD4BF]/30 text-[#2DD4BF] hover:bg-[#2DD4BF]/5"
                   }`}
               >
-                Web
+                {t("projects.web")}
               </Button>
               <Button
                 variant={filter === "dba" ? "default" : "outline"}
                 onClick={() => { setFilter("dba"); setShowAll(false); }}
-                className={`rounded-full uppercase text-xs font-bold transition-all ${filter === "dba" ? "bg-blue-500 hover:bg-blue-600" : "border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
+                className={`rounded-full uppercase text-[10px] font-black tracking-widest h-10 px-6 transition-all ${filter === "dba" ? "bg-[#2DD4BF] hover:bg-[#0d9488] text-white shadow-lg shadow-[#2DD4BF]/20" : "border-[#2DD4BF]/30 text-[#2DD4BF] hover:bg-[#2DD4BF]/5"
                   }`}
               >
-                DBA / Modélisation
+                {t("projects.dba")}
               </Button>
             </div>
-          </div>
 
           {/* Project List - Grid 3 Columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -168,7 +171,7 @@ const Projects: React.FC = () => {
                 key={project.id}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
-                className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-2xl border border-transparent hover:border-blue-500/30 transition-all duration-300 shadow-sm flex flex-col h-full"
+                className="bg-white dark:bg-zinc-900/60 p-5 rounded-[2.5rem] border border-gray-100 dark:border-white/5 hover:border-[#2DD4BF]/40 transition-all duration-500 shadow-xl shadow-black/[0.02] flex flex-col h-full group"
               >
                 {/* Image Container */}
                 <div className="relative h-44 w-full overflow-hidden rounded-xl bg-gray-200 dark:bg-zinc-800 mb-4 flex-shrink-0">
@@ -179,9 +182,9 @@ const Projects: React.FC = () => {
                     className="object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute top-4 right-4 text-white">
-                    <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg ${project.category === 'web'
-                      ? 'bg-blue-500'
-                      : 'bg-emerald-500'
+                    <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg ${project.category === 'web'
+                      ? 'bg-blue-600'
+                      : 'bg-[#2DD4BF]'
                       }`}>
                       {project.category === 'web' ? 'Web' : 'DBA'}
                     </span>
@@ -224,17 +227,17 @@ const Projects: React.FC = () => {
                         <div className="flex flex-wrap gap-2">
                           {project.demoUrl && (
                             <Link href={project.demoUrl} target="_blank" className="flex-1">
-                              <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-full px-4 text-[10px] uppercase font-bold h-9">
+                              <Button className="w-full bg-[#2DD4BF] hover:bg-[#0d9488] text-white rounded-xl px-4 text-[10px] font-black uppercase tracking-widest h-11 transition-all">
                                 Demo
-                                <Globe className="h-3 w-3 ml-1.5" />
+                                <Globe className="h-4 w-4 ml-2" />
                               </Button>
                             </Link>
                           )}
                           {project.githubUrl && (
                             <Link href={project.githubUrl} target="_blank" className="flex-1">
-                              <Button variant="outline" className="w-full border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition-colors rounded-full px-4 text-[10px] uppercase font-bold h-9">
+                              <Button variant="outline" className="w-full border-[#2DD4BF]/20 text-[#2DD4BF] hover:bg-[#2DD4BF] hover:text-white transition-all rounded-xl px-4 text-[10px] font-black uppercase tracking-widest h-11">
                                 GitHub
-                                <Github className="h-3 w-3 ml-1.5" />
+                                <Github className="h-4 w-4 ml-2" />
                               </Button>
                             </Link>
                           )}
@@ -266,8 +269,8 @@ const Projects: React.FC = () => {
                           </div>
                         </div>
 
-                        <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-[10px] uppercase font-bold h-10 mt-2">
-                          <Layers className="h-3.5 w-3.5 mr-1.5" />
+                        <Button className="w-full bg-[#2DD4BF] hover:bg-[#0d9488] text-white rounded-xl text-[10px] font-black uppercase tracking-widest h-11 mt-2 shadow-lg shadow-[#2DD4BF]/10">
+                          <Layers className="h-4 w-4 mr-2" />
                           Modélisation
                         </Button>
                       </div>
@@ -282,9 +285,9 @@ const Projects: React.FC = () => {
             <div className="flex justify-center pt-8">
               <Button
                 onClick={() => setShowAll(!showAll)}
-                className="bg-blue-500 hover:bg-blue-600 text-white rounded-full px-10 uppercase font-bold text-sm"
+                className="bg-[#2DD4BF] hover:bg-[#0d9488] text-white rounded-full px-12 py-6 uppercase font-black tracking-widest text-sm shadow-xl shadow-[#2DD4BF]/20 transition-all hover:scale-105 active:scale-95"
               >
-                {showAll ? "Voir Moins" : "Voir Plus"}
+                {showAll ? t("projects.viewLess") : t("projects.viewMore")}
               </Button>
             </div>
           )}
@@ -298,7 +301,7 @@ const Projects: React.FC = () => {
           )}
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
