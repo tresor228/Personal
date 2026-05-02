@@ -39,7 +39,7 @@ const About: React.FC = () => {
       <div className="section-divider mb-5" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="mb-6 flex flex-col gap-3">
           <span data-aos="fade-right" className="text-[11px] font-black text-[#2DD4BF] uppercase tracking-[0.3em]">
@@ -55,11 +55,11 @@ const About: React.FC = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
-          
+
           {/* Left Column: Journey */}
           <div className="space-y-6" data-aos="fade-up">
             <div className="bg-white dark:bg-zinc-900/50 backdrop-blur-xl border border-gray-100 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-black/5">
-              
+
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
                 <span className="w-1 h-7 bg-[#2DD4BF] rounded-full" />
                 {t("about.journey")}
@@ -106,7 +106,7 @@ const About: React.FC = () => {
           {/* Right Column: Skills */}
           <div className="space-y-6" data-aos="fade-left">
             <div className="bg-white dark:bg-zinc-900/50 backdrop-blur-xl border border-gray-100 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-black/5">
-              
+
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-10 flex items-center gap-3">
                 <span className="w-1 h-7 bg-[#2DD4BF] rounded-full" />
                 {t("about.skills")}
