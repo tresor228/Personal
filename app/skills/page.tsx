@@ -125,7 +125,7 @@ const Skills: React.FC = () => {
               </h3>
 
               <div className="flex flex-wrap gap-3 mt-auto">
-                {category.skills.map((skill, skillIndex) => (
+                {category.skills.map((skill) => (
                   <div
                     key={skill.id}
                     className="flex items-center bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 rounded-2xl py-2.5 px-4 hover:border-[#2DD4BF] dark:hover:border-[#2DD4BF]/50 hover:bg-white dark:hover:bg-white/10 transition-all duration-300 group/item cursor-default"

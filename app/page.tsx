@@ -1,65 +1,79 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Presentation from "./components/Presentation";
 import About from "./about/page";
 import Skills from "./skills/page";
 import Projects from "./projects/page";
-import Certification from "./certification/page";
 import Contact from "./contact/page";
 import ChatBot from "./components/ChatBot";
 import LoadingScreen from "./components/LoadingScreen";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 export default function Page() {
-  const [mounted, setMounted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const pathname = usePathname();
+  const [contentReady, setContentReady] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-    // On initialise AOS mais on le rafraîchira quand le loading sera fini
-    if (typeof window !== "undefined") {
-      AOS.init({
-        duration: 1000,
-        once: false,
-        easing: "ease-out",
-      });
+  useLayoutEffect(() => {
+    try {
+      if (sessionStorage.getItem("portfolio-splash-seen") === "1") {
+        setContentReady(true);
+      }
+    } catch {
+      /* sessionStorage indisponible */
     }
   }, []);
 
-  // Quand le chargement est fini, on rafraîchit AOS pour que les animations se lancent
-  const handleComplete = () => {
-    setIsLoading(false);
-    setTimeout(() => {
-      AOS.refresh();
-    }, 100);
-  };
+  const handleSplashComplete = useCallback(() => {
+    try {
+      sessionStorage.setItem("portfolio-splash-seen", "1");
+    } catch {
+      /* ignore */
+    }
+    setContentReady(true);
+  }, []);
 
-  if (!mounted) return <div className="bg-[#0a0a1a] min-h-screen" />;
+  useEffect(() => {
+    if (!contentReady || typeof window === "undefined") return;
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const id = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.getElementById(hash)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    });
+    return () => cancelAnimationFrame(id);
+  }, [contentReady, pathname]);
+
+  const showSplash = !contentReady;
 
   return (
     <>
-      {isLoading && <LoadingScreen onComplete={handleComplete} />}
+      {showSplash && <LoadingScreen onComplete={handleSplashComplete} />}
 
-      <div
-        className="w-full overflow-hidden text-zinc-800 dark:text-zinc-100"
-        style={{
-          opacity: isLoading ? 0 : 1,
-          visibility: isLoading ? "hidden" : "visible",
-          transition: "opacity 1s ease",
-          height: isLoading ? "100vh" : "auto",
-          overflow: isLoading ? "hidden" : "visible"
-        }}
-      >
-        <Presentation />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-        <ChatBot />
-      </div>
+      {contentReady && (
+        <div className="w-full overflow-hidden text-zinc-800 dark:text-zinc-100 animate-in fade-in duration-500">
+          <section id="top" className="home-section-anchor">
+            <Presentation />
+          </section>
+          <section id="about" className="home-section-anchor">
+            <About />
+          </section>
+          <section id="skills" className="home-section-anchor">
+            <Skills />
+          </section>
+          <section id="projects" className="home-section-anchor">
+            <Projects />
+          </section>
+          <section id="contact" className="home-section-anchor">
+            <Contact />
+          </section>
+          <ChatBot />
+        </div>
+      )}
     </>
   );
 }
-

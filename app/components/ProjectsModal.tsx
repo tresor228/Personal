@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { X, Layout, Github, Globe, Database, ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
+import { X, Layout, Github, ArrowUpRight, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 

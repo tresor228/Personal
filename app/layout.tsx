@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Archivo, Poppins, Inter } from "next/font/google";
+import { Geist_Mono, Archivo, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 import { LanguageProvider } from "./components/LanguageContext";
@@ -34,6 +34,7 @@ export const viewport = {
 }
 
 import Nav from "./components/Nav";
+import { AosProvider } from "./components/AosProvider";
 
 export default function RootLayout({
   children,
@@ -43,7 +44,6 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -71,12 +71,14 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="relative w-full overflow-x-hidden">
-              <Nav />
-              <main className="w-full overflow-hidden">
-                {children}
-              </main>
-            </div>
+            <AosProvider>
+              <div className="relative w-full overflow-x-hidden">
+                <Nav />
+                <main className="w-full overflow-hidden">
+                  {children}
+                </main>
+              </div>
+            </AosProvider>
           </ThemeProvider>
         </LanguageProvider>
       </body>

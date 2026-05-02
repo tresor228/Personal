@@ -18,7 +18,6 @@ const ChatBot: React.FC = () => {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const hasGreetedRef = useRef(false);
 
   // Cacher la bulle de bienvenue automatiquement après 10s ou si le chat s'ouvre
   useEffect(() => {
@@ -70,7 +69,7 @@ const ChatBot: React.FC = () => {
           >
             {messages.length === 0 && (
               <div className="text-center text-gray-400 mt-8 text-sm">
-                <p className="dark:text-gray-500">Posez une question — l'assistant répondra de manière naturelle et utile.</p>
+                <p className="dark:text-gray-500">Posez une question — l&apos;assistant répondra de manière naturelle et utile.</p>
               </div>
             )}
 
@@ -118,11 +117,20 @@ const ChatBot: React.FC = () => {
                   body: JSON.stringify({ message: text, history }),
                 });
 
-                let data: any = null;
-                try { data = await res.json(); } catch (_) { data = null; }
+                type ChatbotResponse = {
+                  reply?: string;
+                  error?: string;
+                  source?: ChatMessage["source"];
+                };
+                let data: ChatbotResponse | null = null;
+                try {
+                  data = (await res.json()) as ChatbotResponse;
+                } catch {
+                  data = null;
+                }
 
                 let reply: string;
-                let source: ChatMessage["source"] = data?.source;
+                const source: ChatMessage["source"] = data?.source;
                 let isError = false;
 
                 if (!res.ok) {
@@ -130,7 +138,10 @@ const ChatBot: React.FC = () => {
                     reply = "Le quota de la clé configurée est dépassé.";
                     isError = true;
                   } else {
-                    reply = data?.error?.message || data?.error || `Erreur serveur (${res.status})`;
+                    reply =
+                      typeof data?.error === "string"
+                        ? data.error
+                        : `Erreur serveur (${res.status})`;
                     isError = true;
                   }
                 } else {
@@ -141,7 +152,7 @@ const ChatBot: React.FC = () => {
                   ...s,
                   { sender: "bot", text: reply, source, isError },
                 ]);
-              } catch (err) {
+              } catch {
                 setMessages((s) => [
                   ...s,
                   {
@@ -214,6 +225,7 @@ const ChatBot: React.FC = () => {
           )}
 
           <div className="relative w-[4.5rem] h-[4.5rem] flex flex-col items-center justify-center rounded-full overflow-hidden bg-white/50 backdrop-blur-sm">
+            {/* eslint-disable-next-line @next/next/no-img-element -- asset local, pas de dimensions fixes pour le bouton rond */}
             <img
               src="/ai_robot.png"
               alt="AI Robot"

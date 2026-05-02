@@ -140,7 +140,7 @@ const About: React.FC = () => {
 
               <div className="mt-10 pt-8 border-t border-gray-100 dark:border-zinc-800">
                 <p className="text-xs text-gray-400 dark:text-zinc-500 font-medium italic">
-                  * Niveau d'assurance et d'expérience pratique avec chaque technologie.
+                  * Niveau d&apos;assurance et d&apos;expérience pratique avec chaque technologie.
                 </p>
               </div>
             </div>

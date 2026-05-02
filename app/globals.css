@@ -67,6 +67,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Ancres page d'accueil : évite que la nav fixe masque les titres */
+.home-section-anchor {
+  scroll-margin-top: 7rem;
+}
+
 html.dark {
   background-color: #0d0f14;
   color: white;
