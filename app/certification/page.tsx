@@ -113,24 +113,24 @@ const Certification: React.FC = () => {
   const displayedCertifications = showAll ? certifications : certifications.slice(0, 6);
 
   return (
-    <div className="py-28 overflow-hidden w-full">
-      <div className="section-divider mb-20" />
+    <div className="py-24 overflow-hidden w-full bg-white dark:bg-[#0B0D10]/15">
+      <div className="section-divider mb-16" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-16 flex flex-col gap-3">
-          <span data-aos="fade-right" className="text-[11px] font-black text-[#2DD4BF] uppercase tracking-[0.3em]">
+        <div className="mb-12 flex flex-col gap-3">
+          <span data-aos="fade-right" className="text-[10px] font-black text-[#FD8D49] uppercase tracking-[0.35em] font-outfit">
             — Apprentissage Continu
           </span>
           <h2
-            className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-gray-900 dark:text-white"
+            className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-zinc-950 dark:text-white font-outfit"
             data-aos="fade-right"
             data-aos-delay="100"
           >
             {t("cert.title")}
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 max-w-xl mt-2" data-aos="fade-up" data-aos-delay="150">
+          <p className="text-zinc-500 dark:text-zinc-400 max-w-xl mt-2 font-outfit text-sm" data-aos="fade-up" data-aos-delay="150">
             {t("cert.description")}
           </p>
         </div>
@@ -142,10 +142,10 @@ const Certification: React.FC = () => {
               key={cert.id}
               data-aos="fade-up"
               data-aos-delay={index * 80}
-              className="group flex flex-col bg-white dark:bg-zinc-900/60 rounded-[2rem] border border-gray-100 dark:border-white/5 overflow-hidden hover:border-[#2DD4BF]/30 hover:shadow-xl hover:shadow-[#2DD4BF]/5 transition-all duration-500"
+              className="group flex flex-col bg-zinc-50 dark:bg-white/5 rounded-[2rem] border border-zinc-100 dark:border-white/5 overflow-hidden hover:border-[#FD8D49]/30 hover:shadow-xl hover:shadow-[#FD8D49]/5 transition-all duration-500"
             >
               {/* Image */}
-              <div className="relative h-44 overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-zinc-800">
+              <div className="relative h-44 overflow-hidden flex-shrink-0 bg-zinc-100 dark:bg-zinc-800">
                 <Image
                   src={cert.image}
                   alt={cert.name}
@@ -154,22 +154,22 @@ const Certification: React.FC = () => {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 {/* Training badge */}
-                <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border backdrop-blur-md ${trainingColors[cert.training] || "bg-gray-100 text-gray-600 border-gray-200"}`}>
+                <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border backdrop-blur-md ${trainingColors[cert.training] || "bg-zinc-100 text-zinc-650 border-zinc-200"}`}>
                   {cert.training}
                 </div>
                 {/* Year badge */}
-                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[9px] font-black uppercase bg-zinc-900/70 text-white backdrop-blur-md">
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[9px] font-black uppercase bg-zinc-900/70 text-white backdrop-blur-md font-outfit">
                   {cert.year}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="flex flex-col flex-1 p-6 gap-4">
-                <h3 className="text-base font-bold text-gray-900 dark:text-white leading-tight">
+              <div className="flex flex-col flex-grow p-6 gap-4 font-outfit">
+                <h3 className="text-base font-bold text-zinc-950 dark:text-white leading-tight">
                   {cert.name}
                 </h3>
 
-                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2 flex-1">
+                <p className="text-xs text-zinc-550 dark:text-zinc-400 leading-relaxed line-clamp-2 flex-grow">
                   {cert.description}
                 </p>
 
@@ -178,7 +178,7 @@ const Certification: React.FC = () => {
                   {cert.tools.map((tool) => (
                     <span
                       key={tool}
-                      className="px-2 py-1 rounded-lg bg-gray-50 dark:bg-white/5 text-gray-500 dark:text-gray-400 text-[9px] font-black border border-gray-100 dark:border-white/5 uppercase tracking-tighter"
+                      className="px-2 py-1 rounded-lg bg-zinc-200/40 dark:bg-white/5 text-zinc-550 dark:text-zinc-400 text-[9px] font-bold border border-zinc-200/20 dark:border-white/5 uppercase tracking-tighter"
                     >
                       {tool}
                     </span>
@@ -190,10 +190,10 @@ const Certification: React.FC = () => {
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto flex items-center justify-center gap-2 py-3 bg-[#2DD4BF]/10 hover:bg-[#2DD4BF] text-[#2DD4BF] hover:text-white rounded-xl text-[10px] font-black uppercase tracking-widest border border-[#2DD4BF]/20 hover:border-[#2DD4BF] transition-all duration-300"
+                  className="mt-4 flex items-center justify-center gap-2 py-3 bg-[#FD8D49]/10 hover:bg-[#FD8D49] text-[#FD8D49] hover:text-white rounded-xl text-[10px] font-black uppercase tracking-widest border border-[#FD8D49]/20 hover:border-[#FD8D49] transition-all duration-300 shadow-md shadow-[#FD8D49]/5"
                 >
                   {t("cert.view")}
-                  <ExternalLink size={12} />
+                  <ExternalLink size={11} />
                 </Link>
               </div>
             </div>
@@ -205,7 +205,7 @@ const Certification: React.FC = () => {
           <div className="flex justify-center mt-14">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="px-10 py-4 rounded-full border-2 border-[#2DD4BF]/40 text-[#2DD4BF] font-black text-sm uppercase tracking-widest hover:bg-[#2DD4BF] hover:text-white hover:border-[#2DD4BF] transition-all duration-300"
+              className="px-10 py-4 rounded-full border-2 border-[#FD8D49]/40 text-[#FD8D49] hover:bg-[#FD8D49] hover:text-white font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-lg shadow-[#FD8D49]/5 font-outfit"
             >
               {showAll ? t("projects.viewLess") : t("projects.viewMore")}
             </button>

@@ -3,161 +3,49 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./LoadingScreen.module.css";
 
-const LOADING_TEXTS = [
-  "Initialisation...",
-  "Chargement des données...",
-  "Préparation de l'interface...",
-  "Presque prêt...",
-  "Bienvenue !",
-] as const;
-
-const TOTAL_DURATION_MS = 2500;
+const TOTAL_DURATION_MS = 2000;
 
 const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
-  const [progress, setProgress] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
-  const [currentText, setCurrentText] = useState(0);
   const onCompleteRef = useRef(onComplete);
 
   onCompleteRef.current = onComplete;
 
-  const particlePositions = [
-    { top: "8%", left: "12%" },
-    { top: "15%", left: "30%" },
-    { top: "5%", left: "55%" },
-    { top: "12%", left: "75%" },
-    { top: "22%", left: "88%" },
-    { top: "35%", left: "5%" },
-    { top: "40%", left: "20%" },
-    { top: "38%", left: "45%" },
-    { top: "42%", left: "70%" },
-    { top: "35%", left: "92%" },
-    { top: "55%", left: "8%" },
-    { top: "60%", left: "28%" },
-    { top: "58%", left: "52%" },
-    { top: "62%", left: "78%" },
-    { top: "55%", left: "95%" },
-    { top: "72%", left: "15%" },
-    { top: "78%", left: "38%" },
-    { top: "75%", left: "62%" },
-    { top: "80%", left: "82%" },
-    { top: "88%", left: "48%" },
-  ];
-
-  const dotDelays = ["0s", "0.2s", "0.4s"];
-
   useEffect(() => {
-    const intervalMs = 50;
-    const increment = 100 / (TOTAL_DURATION_MS / intervalMs);
-
-    const progressTimer = setInterval(() => {
-      setProgress((prev) => {
-        const next = prev + increment;
-        if (next >= 100) {
-          clearInterval(progressTimer);
-          return 100;
-        }
-        return next;
-      });
-    }, intervalMs);
-
-    const textTimers = LOADING_TEXTS.map((_, i) =>
-      setTimeout(
-        () => setCurrentText(i),
-        (TOTAL_DURATION_MS / LOADING_TEXTS.length) * i
-      )
-    );
-
     const exitTimer = setTimeout(() => {
       setIsExiting(true);
-      setTimeout(() => {
-        onCompleteRef.current();
-      }, 500);
+      setTimeout(() => onCompleteRef.current(), 600);
     }, TOTAL_DURATION_MS);
 
-    return () => {
-      clearInterval(progressTimer);
-      textTimers.forEach((t) => clearTimeout(t));
-      clearTimeout(exitTimer);
-    };
+    return () => clearTimeout(exitTimer);
   }, []);
 
   return (
-    <div
-      className={`${styles.loadingScreen} ${isExiting ? styles.loadingExit : ""}`}
-    >
-      <div className={styles.gridBg} />
+    <div className={`${styles.screen} ${isExiting ? styles.exit : ""}`}>
+      {/* scanlines */}
+      <div className={styles.scanlines} aria-hidden />
 
-      <div className={styles.particles}>
-        {particlePositions.map((pos, i) => (
-          <span
-            key={i}
-            className={styles.particle}
-            style={{
-              top: pos.top,
-              left: pos.left,
-              animationDelay: `${i * -0.15}s`,
-              animationDuration: `${3 + i * 0.3}s`,
-            }}
-          />
-        ))}
+      {/* coins HUD */}
+      <div className={styles.cornerTL}>[ TA ]</div>
+      <div className={styles.cornerTR}>DV{new Date().getFullYear()}:2K</div>
+
+      {/* contenu central */}
+      <div className={styles.center}>
+        <div className={styles.glitchWrap}>
+          <span className={styles.title} data-text="LOADING">LOADING</span>
+        </div>
+        <div className={styles.sub}>
+          <span className={styles.subLine} />
+          <span className={styles.subText}>TRÉSOR · ALADE</span>
+          <span className={styles.subLine} />
+        </div>
       </div>
 
-      <div className={styles.loadingContent}>
-        <div className={styles.logoContainer}>
-          <div className={`${styles.logoRing} ${styles.outerRing}`} />
-          <div className={`${styles.logoRing} ${styles.middleRing}`} />
-          <div className={`${styles.logoRing} ${styles.innerRing}`} />
-          <div className={styles.logoInitials}>
-            <span className={styles.initialT}>T</span>
-            <span className={styles.initialA}>A</span>
-          </div>
-        </div>
-
-        <div className={styles.loadingName}>
-          <span className={styles.nameTresor}>Trésor</span>
-          <span className={styles.nameAlade}>ALADE</span>
-        </div>
-
-        <div className={styles.decorativeLine}>
-          <span className={styles.lineDot} />
-          <span className={styles.lineBar} />
-          <span className={styles.lineDot} />
-        </div>
-
-        <div className={styles.loadingTextContainer}>
-          <p className={styles.loadingText} key={currentText}>
-            {LOADING_TEXTS[currentText]}
-          </p>
-        </div>
-
-        <div className={styles.progressContainer}>
-          <div className={styles.progressTrack}>
-            <div
-              className={styles.progressFill}
-              style={{ width: `${progress}%` }}
-            />
-            <div
-              className={styles.progressGlow}
-              style={{ left: `${progress}%` }}
-            />
-          </div>
-          <div className={styles.progressLabels}>
-            <span className={styles.progressLabel}>Chargement</span>
-            <span className={styles.progressPercent}>
-              {Math.round(progress)}%
-            </span>
-          </div>
-        </div>
-
-        <div className={styles.dotsContainer}>
-          {dotDelays.map((delay, i) => (
-            <span
-              key={i}
-              className={styles.loadingDot}
-              style={{ animationDelay: delay }}
-            />
-          ))}
+      {/* barre du bas */}
+      <div className={styles.bottom}>
+        <span className={styles.wait}>PLEASE WAIT...</span>
+        <div className={styles.track}>
+          <div className={styles.fill} />
         </div>
       </div>
     </div>

@@ -51,12 +51,13 @@ export const useLanguage = () => {
 const translations: Record<Language, Record<string, string>> = {
   fr: {
     // Nav
-    "nav.home": "Accueil",
-    "nav.about": "À propos",
-    "nav.skills": "Expertise",
-    "nav.projects": "Réalisations",
+    "nav.home": "Home",
+    "nav.about": "About",
+    "nav.skills": "Service",
+    "nav.resume": "Resume",
+    "nav.projects": "Project",
     "nav.certification": "Certifications",
-    "nav.contact": "Me recruter",
+    "nav.contact": "Contact",
 
     // Presentation
     "hero.salut": "Expertise & ",
@@ -129,11 +130,12 @@ const translations: Record<Language, Record<string, string>> = {
   en: {
     // Nav
     "nav.home": "Home",
-    "nav.about": "Expert Profile",
-    "nav.skills": "Expertise",
-    "nav.projects": "Case Studies",
+    "nav.about": "About",
+    "nav.skills": "Service",
+    "nav.resume": "Resume",
+    "nav.projects": "Project",
     "nav.certification": "Certifications",
-    "nav.contact": "Hire Me",
+    "nav.contact": "Contact",
 
     // Presentation
     "hero.salut": "Expertise & ",

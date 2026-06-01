@@ -55,11 +55,15 @@ body.modal-open {
 ============================================= */
 
 :root {
-  --emerald: #2DD4BF;
-  --emerald-dark: #0d9488;
+  --emerald: #FD8D49;
+  --emerald-dark: #E06B29;
   --blue-accent: #3b82f6;
   --radius-card: 2.5rem;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.font-outfit {
+  font-family: var(--font-outfit), sans-serif;
 }
 
 /* Base & Scrollbar */
@@ -73,7 +77,7 @@ html {
 }
 
 html.dark {
-  background-color: #0d0f14;
+  background-color: #0B0D10;
   color: white;
 }
 
@@ -129,6 +133,16 @@ html.light {
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
+}
+
+@keyframes chatWave {
+  0%, 100% { transform: scaleY(0.35); opacity: 0.5; }
+  50%       { transform: scaleY(1);    opacity: 1;   }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 @keyframes shimmer {

@@ -11,23 +11,48 @@ type NavItem = {
   path: string;
   name: string;
   sectionId: string | null;
+  isExternal?: boolean;
 };
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("top");
   const { language, setLanguage, t } = useLanguage();
   const pathname = usePathname();
 
+  const cvLink = "https://drive.google.com/file/d/1ckRwZsWM5G-TEKY28aINVZcBreZidPXg/view?usp=sharing";
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+      
+      if (pathname !== "/") return;
+
+      const sections = ["top", "about", "skills", "projects", "contact"];
+      const scrollPosition = window.scrollY + 180; // offset for nav height
+
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const links: NavItem[] = [
     { path: "/", name: t("nav.home"), sectionId: "top" },
     { path: "/about", name: t("nav.about"), sectionId: "about" },
+    { path: cvLink, name: t("nav.resume"), sectionId: null, isExternal: true },
     { path: "/skills", name: t("nav.skills"), sectionId: "skills" },
     { path: "/projects", name: t("nav.projects"), sectionId: "projects" },
     { path: "/contact", name: t("nav.contact"), sectionId: "contact" },
@@ -36,18 +61,25 @@ export default function Navbar() {
   const scrollToSection = useCallback((sectionId: string | null) => {
     if (sectionId === "top" || sectionId === null) {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      setActiveSection("top");
       return;
     }
-    document
-      .getElementById(sectionId)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveSection(sectionId);
+    }
   }, []);
 
-  const linkHref = (item: NavItem) =>
-    item.path === "/" ? "/" : `/#${item.sectionId ?? ""}`;
+  const linkHref = (item: NavItem) => {
+    if (item.isExternal) return item.path;
+    return item.path === "/" ? "/" : `/#${item.sectionId ?? ""}`;
+  };
 
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, item: NavItem) => {
+      if (item.isExternal) return; // Let default external navigation happen
+      
       if (pathname !== "/") return;
       e.preventDefault();
       setIsOpen(false);
@@ -57,29 +89,54 @@ export default function Navbar() {
   );
 
   const isLinkActive = (item: NavItem) => {
-    if (item.path === "/") return pathname === "/";
-    return pathname === item.path;
+    if (item.isExternal) return false;
+    if (pathname !== "/") return false;
+    return activeSection === item.sectionId;
   };
+
+  const leftLinks = links.slice(0, 3);
+  const rightLinks = links.slice(3);
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 w-full ${
-        scrolled ? "py-2" : "py-4"
+        scrolled ? "py-3" : "py-5"
       } px-4 sm:px-6 lg:px-8`}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div
-          className={`transition-all duration-500 ${
-            scrolled
-              ? "bg-white/90 dark:bg-zinc-950/90 shadow-xl shadow-black/5 border border-gray-200/50 dark:border-white/5"
-              : "bg-white/40 dark:bg-zinc-950/30 border border-white/20 dark:border-white/5"
-          } backdrop-blur-2xl rounded-2xl`}
+          className="transition-all duration-500 bg-[#0B0D10]/95 dark:bg-black/90 shadow-2xl border border-white/10 backdrop-blur-2xl rounded-full px-4 sm:px-6 py-2"
         >
-          <div className="flex justify-between items-center h-16 px-5 sm:px-7">
+          <div className="flex items-center h-12">
+            {/* Left nav links (desktop) */}
+            <div className="hidden lg:flex items-center gap-1 flex-1">
+              {leftLinks.map((link) => {
+                const isActive = isLinkActive(link);
+                return (
+                  <Link
+                    key={link.name}
+                    href={linkHref(link)}
+                    scroll={false}
+                    target={link.isExternal ? "_blank" : undefined}
+                    rel={link.isExternal ? "noopener noreferrer" : undefined}
+                    className={`relative px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-full font-outfit ${
+                      isActive
+                        ? "text-white bg-[#FD8D49] shadow-md shadow-[#FD8D49]/30"
+                        : "text-zinc-400 hover:text-white hover:bg-white/5"
+                    }`}
+                    onClick={(e) => handleNavClick(e, link)}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Center Logo */}
             <Link
               href="/"
               scroll={false}
-              className="group flex items-center gap-2"
+              className="group flex items-center justify-center mx-auto lg:mx-6"
               onClick={(e) => {
                 if (pathname === "/") {
                   e.preventDefault();
@@ -87,105 +144,102 @@ export default function Navbar() {
                 }
               }}
             >
-              <div className="w-8 h-8 bg-[#2DD4BF] rounded-lg flex items-center justify-center text-white font-black text-sm shadow-lg shadow-[#2DD4BF]/30 group-hover:rotate-6 transition-transform">
-                T
+              <div className="w-9 h-9 bg-[#FD8D49] rounded-full flex items-center justify-center text-white font-black text-xs shadow-md shadow-[#FD8D49]/30 group-hover:scale-110 transition-transform duration-300">
+                TA
               </div>
-              <span className="text-base font-black uppercase tracking-tighter text-gray-900 dark:text-white transition-colors group-hover:text-[#2DD4BF]">
-                TRÉSOR ALADE
-              </span>
             </Link>
 
-            <div className="hidden lg:flex items-center gap-1">
-              {links.map((link) => {
+            {/* Right nav links + controls (desktop) */}
+            <div className="hidden lg:flex items-center gap-1 flex-1 justify-end">
+              {rightLinks.map((link) => {
                 const isActive = isLinkActive(link);
                 return (
                   <Link
-                    key={link.path}
+                    key={link.name}
                     href={linkHref(link)}
                     scroll={false}
-                    className={`relative px-4 py-2 text-sm font-bold uppercase tracking-tight transition-all duration-200 rounded-xl ${
+                    target={link.isExternal ? "_blank" : undefined}
+                    rel={link.isExternal ? "noopener noreferrer" : undefined}
+                    className={`relative px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-full font-outfit ${
                       isActive
-                        ? "text-[#2DD4BF] bg-[#2DD4BF]/5"
-                        : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5"
+                        ? "text-white bg-[#FD8D49] shadow-md shadow-[#FD8D49]/30"
+                        : "text-zinc-400 hover:text-white hover:bg-white/5"
                     }`}
                     onClick={(e) => handleNavClick(e, link)}
                   >
                     {link.name}
-                    {isActive && (
-                      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#2DD4BF] rounded-full" />
-                    )}
                   </Link>
                 );
               })}
-            </div>
 
-            <div className="flex items-center gap-2">
+              {/* Language toggle */}
               <button
                 type="button"
                 onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-gray-600 dark:text-gray-300 hover:text-[#2DD4BF] bg-gray-50 dark:bg-white/5 hover:bg-[#2DD4BF]/5 rounded-full border border-gray-100 dark:border-white/5 hover:border-[#2DD4BF]/30 transition-all"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-zinc-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-full border border-white/5 hover:border-white/10 transition-all font-outfit ml-1"
               >
-                <Globe size={13} />
+                <Globe size={11} className="text-zinc-400" />
                 {language === "fr" ? "EN" : "FR"}
               </button>
 
-              <ThemeToggle />
+              <div className="bg-white/5 rounded-full p-1 border border-white/5 text-zinc-400 hover:text-white transition-colors">
+                <ThemeToggle />
+              </div>
+            </div>
 
+            {/* Mobile controls */}
+            <div className="lg:hidden flex items-center gap-2 ml-auto">
+              <button
+                type="button"
+                onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
+                className="flex items-center gap-1 px-2.5 py-1.5 text-[9px] font-black uppercase tracking-widest text-zinc-400 hover:text-white bg-white/5 rounded-full border border-white/5 transition-all font-outfit"
+              >
+                <Globe size={10} />
+                {language === "fr" ? "EN" : "FR"}
+              </button>
+              <div className="bg-white/5 rounded-full p-1 border border-white/5 text-zinc-400 hover:text-white transition-colors">
+                <ThemeToggle />
+              </div>
               <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-[#2DD4BF] hover:bg-[#2DD4BF]/5 rounded-xl transition-all"
+                className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-full transition-all"
               >
-                {isOpen ? <X size={22} /> : <Menu size={22} />}
+                {isOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
           </div>
 
+          {/* Mobile menu dropdown */}
           <div
-            className={`lg:hidden overflow-hidden transition-all duration-300 ${
+            className={`lg:hidden overflow-hidden transition-all duration-500 ${
               isOpen
-                ? "max-h-96 border-t border-gray-100 dark:border-white/5"
+                ? "max-h-[380px] mt-4 border-t border-white/10 pt-4 pb-2"
                 : "max-h-0"
             }`}
           >
-            <div className="p-5 space-y-2">
+            <div className="space-y-1 px-2 pb-3">
               {links.map((link) => {
                 const isActive = isLinkActive(link);
                 return (
                   <Link
-                    key={link.path}
+                    key={link.name}
                     href={linkHref(link)}
                     scroll={false}
-                    className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-tight transition-all ${
+                    target={link.isExternal ? "_blank" : undefined}
+                    rel={link.isExternal ? "noopener noreferrer" : undefined}
+                    className={`flex items-center px-4 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 font-outfit ${
                       isActive
-                        ? "text-[#2DD4BF] bg-[#2DD4BF]/5"
-                        : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5"
+                        ? "text-white bg-[#FD8D49] shadow-md shadow-[#FD8D49]/30"
+                        : "text-zinc-400 hover:text-white hover:bg-white/5"
                     }`}
                     onClick={(e) => handleNavClick(e, link)}
                   >
                     {link.name}
-                    {isActive && (
-                      <span className="w-1.5 h-1.5 bg-[#2DD4BF] rounded-full" />
-                    )}
                   </Link>
                 );
               })}
 
-              <div className="pt-4 border-t border-gray-100 dark:border-white/5 flex items-center justify-between">
-                <span className="text-xs font-black text-gray-400 uppercase tracking-widest">
-                  Langue
-                </span>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setLanguage(language === "fr" ? "en" : "fr");
-                    setIsOpen(false);
-                  }}
-                  className="px-5 py-2 bg-[#2DD4BF] hover:bg-[#0d9488] text-white rounded-full text-xs font-black uppercase tracking-widest transition-all"
-                >
-                  {language === "fr" ? "English" : "Français"}
-                </button>
-              </div>
             </div>
           </div>
         </div>

@@ -27,7 +27,7 @@ const About: React.FC = () => {
   ];
 
   const topSkills = [
-    { name: "Django / Python", level: 90, color: "#2DD4BF" },
+    { name: "Django / Python", level: 90, color: "#FD8D49" },
     { name: "PostgreSQL", level: 90, color: "#336791" },
     { name: "SQL Server", level: 85, color: "#CC2927" },
     { name: "MySQL", level: 85, color: "#4479A1" },
@@ -35,18 +35,18 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="section-divider-wrapper py-10 overflow-hidden">
-      <div className="section-divider mb-5" />
+    <div className="section-divider-wrapper py-24 overflow-hidden bg-white dark:bg-[#0B0D10]/15">
+      <div className="section-divider mb-12" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="mb-6 flex flex-col gap-3">
-          <span data-aos="fade-right" className="text-[11px] font-black text-[#2DD4BF] uppercase tracking-[0.3em]">
+        <div className="mb-12 flex flex-col gap-3">
+          <span data-aos="fade-right" className="text-[10px] font-black text-[#FD8D49] uppercase tracking-[0.35em] font-outfit">
             — Mon Parcours
           </span>
           <h2
-            className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-gray-900 dark:text-white"
+            className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-zinc-950 dark:text-white font-outfit"
             data-aos="fade-right"
             data-aos-delay="100"
           >
@@ -54,38 +54,38 @@ const About: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* Left Column: Journey */}
           <div className="space-y-6" data-aos="fade-up">
-            <div className="bg-white dark:bg-zinc-900/50 backdrop-blur-xl border border-gray-100 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-black/5">
+            <div className="bg-zinc-50 dark:bg-white/5 backdrop-blur-xl border border-zinc-100 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-black/[0.01]">
 
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
-                <span className="w-1 h-7 bg-[#2DD4BF] rounded-full" />
+              <h3 className="text-xl font-bold text-zinc-950 dark:text-white mb-8 flex items-center gap-3 font-outfit">
+                <span className="w-1.5 h-6 bg-[#FD8D49] rounded-full" />
                 {t("about.journey")}
               </h3>
 
               <div className="space-y-5">
-                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium">
+                <p className="text-base leading-relaxed text-zinc-700 dark:text-zinc-300 font-medium font-outfit">
                   {t("about.description")}
                 </p>
-                <p className="text-gray-500 dark:text-gray-400 leading-relaxed italic border-l-2 border-[#2DD4BF]/30 pl-4">
+                <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed italic border-l-2 border-[#FD8D49]/30 pl-4 font-outfit text-sm">
                   {t("about.education")}
                 </p>
-                <div className="h-px bg-gradient-to-r from-[#2DD4BF]/30 via-gray-200 dark:via-zinc-800 to-transparent my-6" />
-                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+                <div className="h-px bg-gradient-to-r from-[#FD8D49]/30 via-zinc-200 dark:via-zinc-800 to-transparent my-6" />
+                <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed font-outfit text-sm">
                   {t("about.search")}
                 </p>
-                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+                <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed font-outfit text-sm">
                   {t("about.motivation")}
                 </p>
               </div>
 
-              <div className="mt-10 pt-8 border-t border-gray-100 dark:border-zinc-800 flex flex-wrap items-center gap-4">
+              <div className="mt-10 pt-8 border-t border-zinc-200/60 dark:border-zinc-850 flex flex-wrap items-center gap-4">
                 <Link href={links[0]} target="_blank">
-                  <Button className="bg-gray-900 dark:bg-white dark:text-gray-900 text-white rounded-full px-6 h-11 text-sm font-bold shadow-lg transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+                  <Button className="bg-[#FD8D49] hover:bg-[#E06B29] text-white rounded-full px-6 h-11 text-xs font-black uppercase tracking-wider shadow-lg shadow-[#FD8D49]/10 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 font-outfit">
                     {t("about.cv")}
-                    <Download className="h-4 w-4" />
+                    <Download className="h-3.5 w-3.5" />
                   </Button>
                 </Link>
 
@@ -93,8 +93,8 @@ const About: React.FC = () => {
                   {socialLinks.map((social) => (
                     <Link href={social.link} key={social.id} target="_blank">
                       <Button variant="outline" size="icon"
-                        className="w-11 h-11 rounded-full border-gray-200 dark:border-zinc-700 hover:border-[#2DD4BF] hover:text-[#2DD4BF] dark:hover:text-[#2DD4BF] transition-all">
-                        <social.icon className="h-5 w-5" />
+                        className="w-11 h-11 rounded-full border-zinc-250 dark:border-zinc-750 hover:border-[#FD8D49] hover:text-[#FD8D49] dark:hover:text-[#FD8D49] transition-all bg-white dark:bg-zinc-900 shadow-sm text-zinc-500">
+                        <social.icon className="h-4.5 w-4.5" />
                       </Button>
                     </Link>
                   ))}
@@ -105,25 +105,25 @@ const About: React.FC = () => {
 
           {/* Right Column: Skills */}
           <div className="space-y-6" data-aos="fade-left">
-            <div className="bg-white dark:bg-zinc-900/50 backdrop-blur-xl border border-gray-100 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-black/5">
+            <div className="bg-zinc-50 dark:bg-white/5 backdrop-blur-xl border border-zinc-100 dark:border-white/5 p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-black/[0.01]">
 
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-10 flex items-center gap-3">
-                <span className="w-1 h-7 bg-[#2DD4BF] rounded-full" />
+              <h3 className="text-xl font-bold text-zinc-950 dark:text-white mb-10 flex items-center gap-3 font-outfit">
+                <span className="w-1.5 h-6 bg-[#FD8D49] rounded-full" />
                 {t("about.skills")}
               </h3>
 
-              <div className="space-y-8">
+              <div className="space-y-7">
                 {topSkills.map((skill, index) => (
-                  <div key={skill.name} className="space-y-3">
+                  <div key={skill.name} className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-base font-bold text-gray-800 dark:text-white tracking-tight">
+                      <span className="text-sm font-bold text-zinc-800 dark:text-white tracking-wide font-outfit">
                         {skill.name}
                       </span>
-                      <span className="text-sm font-black" style={{ color: skill.color }}>
+                      <span className="text-xs font-black font-outfit" style={{ color: skill.color }}>
                         {skill.level}%
                       </span>
                     </div>
-                    <div className="h-2.5 w-full bg-gray-100 dark:bg-zinc-800 rounded-full overflow-hidden">
+                    <div className="h-2 w-full bg-zinc-200/60 dark:bg-zinc-800 rounded-full overflow-hidden">
                       <div
                         className="h-full rounded-full transition-all duration-1000 ease-out"
                         style={{
@@ -138,8 +138,8 @@ const About: React.FC = () => {
                 ))}
               </div>
 
-              <div className="mt-10 pt-8 border-t border-gray-100 dark:border-zinc-800">
-                <p className="text-xs text-gray-400 dark:text-zinc-500 font-medium italic">
+              <div className="mt-10 pt-8 border-t border-zinc-200/60 dark:border-zinc-800">
+                <p className="text-[10px] text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider font-outfit">
                   * Niveau d&apos;assurance et d&apos;expérience pratique avec chaque technologie.
                 </p>
               </div>
@@ -148,8 +148,8 @@ const About: React.FC = () => {
         </div>
 
         {/* CTA Parcours */}
-        <div className="mt-6 flex flex-col items-center gap-4" data-aos="zoom-in">
-          <span className="text-xs text-gray-400 uppercase tracking-widest font-bold">Formations & certifications</span>
+        <div className="mt-16 flex flex-col items-center gap-4" data-aos="zoom-in">
+          <span className="text-[10px] text-zinc-400 uppercase tracking-widest font-black font-outfit">Formations & certifications</span>
           <ParcoursBoutton />
         </div>
       </div>

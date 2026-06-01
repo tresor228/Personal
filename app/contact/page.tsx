@@ -64,23 +64,23 @@ const Contact = () => {
     { id: 3, name: "Twitter", icon: <FaTwitter />, link: "https://x.com/kodjo_alad65494" },
   ];
 
-  const inputClass = "w-full px-5 py-3.5 rounded-2xl bg-gray-50 dark:bg-zinc-800/50 border border-gray-200 dark:border-zinc-700 focus:border-[#2DD4BF] focus:ring-4 focus:ring-[#2DD4BF]/10 outline-none transition-all text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-600 text-sm";
+  const inputClass = "w-full px-5 py-3.5 rounded-2xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-200 dark:border-zinc-700/60 focus:border-[#FD8D49] focus:ring-4 focus:ring-[#FD8D49]/10 outline-none transition-all text-zinc-900 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-sm font-outfit";
 
   return (
-    <div className='w-full overflow-hidden py-10'>
-      <div className="section-divider mb-5" />
+    <div className='w-full overflow-hidden py-24 bg-white dark:bg-[#0B0D10]/15'>
+      <div className="section-divider mb-12" />
 
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 font-outfit'>
         
         {/* Section Header */}
-        <div className='mb-6' data-aos="fade-down">
-          <span className="text-[11px] font-black text-[#2DD4BF] uppercase tracking-[0.3em]">
+        <div className='mb-12' data-aos="fade-down">
+          <span className="text-[10px] font-black text-[#FD8D49] uppercase tracking-[0.35em]">
             — Travaillons ensemble
           </span>
-          <h2 className='text-5xl md:text-7xl font-black uppercase tracking-tighter text-gray-900 dark:text-white mt-3'>
+          <h2 className='text-4xl sm:text-6xl font-black uppercase tracking-tight text-zinc-950 dark:text-white mt-3'>
             {t("contact.title")}
           </h2>
-          <p className='text-gray-500 dark:text-gray-400 max-w-xl mt-4'>
+          <p className='text-zinc-500 dark:text-zinc-400 max-w-xl mt-4 text-sm'>
             {t("contact.description")}
           </p>
         </div>
@@ -91,33 +91,33 @@ const Contact = () => {
           <div className='lg:col-span-2 space-y-6' data-aos="fade-right">
             
             {/* Email */}
-            <div className='group flex items-center gap-4 p-5 bg-white dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-white/5 hover:border-[#2DD4BF]/30 transition-all'>
-              <div className='p-3 bg-[#2DD4BF]/10 rounded-xl text-[#2DD4BF] flex-shrink-0'>
-                <Mail size={22} />
+            <div className='group flex items-center gap-4 p-5 bg-zinc-50 dark:bg-white/5 rounded-2xl border border-zinc-100 dark:border-white/5 hover:border-[#FD8D49]/30 transition-all shadow-md shadow-black/[0.005]'>
+              <div className='p-3 bg-[#FD8D49]/10 rounded-xl text-[#FD8D49] flex-shrink-0'>
+                <Mail size={20} />
               </div>
               <div className='flex-1 min-w-0'>
-                <p className='text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1'>Email</p>
+                <p className='text-[9px] font-black text-zinc-400 uppercase tracking-widest mb-1'>Email</p>
                 <a href="mailto:bernardalade92@gmail.com"
-                  className='text-sm font-bold text-gray-900 dark:text-white hover:text-[#2DD4BF] transition-colors truncate block'>
+                  className='text-sm font-bold text-zinc-900 dark:text-white hover:text-[#FD8D49] transition-colors truncate block'>
                   bernardalade92@gmail.com
                 </a>
               </div>
               <button onClick={handleCopyEmail}
-                className='p-2 hover:bg-gray-100 dark:hover:bg-zinc-700 rounded-xl transition-all text-gray-400 hover:text-[#2DD4BF]'
+                className='p-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800 rounded-xl transition-all text-zinc-400 hover:text-[#FD8D49]'
                 title="Copier">
-                {copied ? <Check size={16} className='text-[#2DD4BF]' /> : <Copy size={16} />}
+                {copied ? <Check size={16} className='text-[#FD8D49]' /> : <Copy size={16} />}
               </button>
             </div>
 
             {/* CV */}
-            <div className='flex items-center gap-4 p-5 bg-white dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-white/5 hover:border-[#2DD4BF]/30 transition-all'>
-              <div className='p-3 bg-blue-500/10 rounded-xl text-blue-500 flex-shrink-0'>
-                <FileText size={22} />
+            <div className='flex items-center gap-4 p-5 bg-zinc-50 dark:bg-white/5 rounded-2xl border border-zinc-100 dark:border-white/5 hover:border-[#FD8D49]/30 transition-all shadow-md shadow-black/[0.005]'>
+              <div className='p-3 bg-[#FD8D49]/10 rounded-xl text-[#FD8D49] flex-shrink-0'>
+                <FileText size={20} />
               </div>
               <div className='flex-1'>
-                <p className='text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1'>Curriculum Vitae</p>
+                <p className='text-[9px] font-black text-zinc-400 uppercase tracking-widest mb-1'>Curriculum Vitae</p>
                 <Link href={cvLink} target='_blank'
-                  className='group/cv inline-flex items-center text-sm font-bold text-gray-900 dark:text-white hover:text-[#2DD4BF] transition-colors gap-1'>
+                  className='group/cv inline-flex items-center text-sm font-bold text-zinc-900 dark:text-white hover:text-[#FD8D49] transition-colors gap-1'>
                   {t("contact.info.cv")}
                   <ArrowRight size={14} className='group-hover/cv:translate-x-1 transition-transform' />
                 </Link>
@@ -125,19 +125,19 @@ const Contact = () => {
             </div>
 
             {/* Availability */}
-            <div className='flex items-center gap-4 p-5 bg-white dark:bg-zinc-900/50 rounded-2xl border border-gray-100 dark:border-white/5 hover:border-[#2DD4BF]/30 transition-all'>
+            <div className='flex items-center gap-4 p-5 bg-zinc-50 dark:bg-white/5 rounded-2xl border border-zinc-100 dark:border-white/5 hover:border-[#FD8D49]/30 transition-all shadow-md shadow-black/[0.005]'>
               <div className='p-3 bg-emerald-500/10 rounded-xl text-emerald-500 flex-shrink-0'>
-                <Globe size={22} />
+                <Globe size={20} />
               </div>
               <div>
-                <p className='text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1'>{t("contact.info.availability")}</p>
-                <p className='text-sm font-bold text-gray-900 dark:text-white'>{t("contact.info.availability.details")}</p>
+                <p className='text-[9px] font-black text-zinc-400 uppercase tracking-widest mb-1'>{t("contact.info.availability")}</p>
+                <p className='text-sm font-bold text-zinc-900 dark:text-white'>{t("contact.info.availability.details")}</p>
               </div>
             </div>
 
             {/* Socials */}
             <div className='pt-4'>
-              <p className='text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4'>{t("contact.socials")}</p>
+              <p className='text-[9px] font-black text-zinc-400 uppercase tracking-widest mb-4'>{t("contact.socials")}</p>
               <div className='flex gap-3'>
                 {socials.map((social) => (
                   <Link
@@ -146,7 +146,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className="p-3 bg-white dark:bg-zinc-900/50 border border-gray-100 dark:border-white/5 rounded-full text-xl text-gray-500 dark:text-gray-400 hover:text-[#2DD4BF] hover:border-[#2DD4BF]/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+                    className="p-3 bg-zinc-50 dark:bg-white/5 border border-zinc-100 dark:border-white/5 rounded-full text-lg text-zinc-500 dark:text-zinc-400 hover:text-[#FD8D49] hover:border-[#FD8D49]/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#FD8D49]/5 transition-all duration-300 shadow-sm"
                   >
                     {social.icon}
                   </Link>
@@ -157,61 +157,61 @@ const Contact = () => {
 
           {/* Form Column */}
           <div className='lg:col-span-3' data-aos="fade-left">
-            <div className='bg-white dark:bg-zinc-900/50 backdrop-blur-sm p-8 sm:p-10 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-xl shadow-black/5'>
+            <div className='bg-zinc-50 dark:bg-white/5 backdrop-blur-sm p-8 sm:p-10 rounded-[2.5rem] border border-zinc-100 dark:border-white/5 shadow-xl shadow-black/[0.005]'>
               
               <div className='flex items-center gap-3 mb-8'>
-                <div className='p-2.5 bg-[#2DD4BF] rounded-xl text-white'>
-                  <MessageSquare size={20} />
+                <div className='p-2.5 bg-[#FD8D49] rounded-xl text-white shadow-md shadow-[#FD8D49]/20'>
+                  <MessageSquare size={18} />
                 </div>
-                <h3 className='text-xl font-bold text-gray-900 dark:text-white'>{t("contact.form.title")}</h3>
+                <h3 className='text-xl font-bold text-zinc-900 dark:text-white'>{t("contact.form.title")}</h3>
               </div>
 
               <form onSubmit={handleSubmit} className='space-y-5'>
                 <div className='grid sm:grid-cols-2 gap-5'>
                   <div className='space-y-2'>
-                    <label htmlFor="name" className='text-xs font-black text-gray-500 dark:text-gray-400 uppercase tracking-widest'>{t("contact.form.name")}</label>
+                    <label htmlFor="name" className='text-[9px] font-black text-zinc-400 uppercase tracking-widest'>{t("contact.form.name")}</label>
                     <input type="text" name="name" id="name" value={formData.name} onChange={handleChange}
                       required placeholder="Trésor ALADE" className={inputClass} />
                   </div>
                   <div className='space-y-2'>
-                    <label htmlFor="email" className='text-xs font-black text-gray-500 dark:text-gray-400 uppercase tracking-widest'>{t("contact.form.email")}</label>
+                    <label htmlFor="email" className='text-[9px] font-black text-zinc-400 uppercase tracking-widest'>{t("contact.form.email")}</label>
                     <input type="email" name="email" id="email" value={formData.email} onChange={handleChange}
                       required placeholder="exemple@gmail.com" className={inputClass} />
                   </div>
                 </div>
 
                 <div className='space-y-2'>
-                  <label htmlFor="subject" className='text-xs font-black text-gray-500 dark:text-gray-400 uppercase tracking-widest'>{t("contact.form.subject")}</label>
+                  <label htmlFor="subject" className='text-[9px] font-black text-zinc-400 uppercase tracking-widest'>{t("contact.form.subject")}</label>
                   <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange}
                     required placeholder={t("contact.form.subject")} className={inputClass} />
                 </div>
 
                 <div className='space-y-2'>
-                  <label htmlFor="message" className='text-xs font-black text-gray-500 dark:text-gray-400 uppercase tracking-widest'>{t("contact.form.message")}</label>
+                  <label htmlFor="message" className='text-[9px] font-black text-zinc-400 uppercase tracking-widest'>{t("contact.form.message")}</label>
                   <textarea name="message" id="message" rows={5} value={formData.message} onChange={handleChange}
                     required placeholder="Votre message..." className={`${inputClass} resize-none`} />
                 </div>
 
                 <button type="submit" disabled={isLoading}
-                  className='group w-full flex items-center justify-center gap-3 py-4 bg-[#2DD4BF] hover:bg-[#0d9488] disabled:opacity-60 text-white font-black text-sm uppercase tracking-widest rounded-2xl transition-all duration-300 shadow-xl shadow-[#2DD4BF]/20 hover:shadow-[#2DD4BF]/30 hover:-translate-y-0.5'>
+                  className='group w-full flex items-center justify-center gap-3 py-4 bg-[#FD8D49] hover:bg-[#E06B29] disabled:opacity-60 text-white font-black text-xs uppercase tracking-widest rounded-2xl transition-all duration-300 shadow-xl shadow-[#FD8D49]/10 hover:shadow-[#FD8D49]/20 hover:-translate-y-0.5'>
                   {isLoading ? (
                     <>
-                      <Loader2 className="animate-spin" size={18} />
+                      <Loader2 className="animate-spin" size={16} />
                       {t("contact.form.sending")}
                     </>
                   ) : (
                     <>
-                      <Send size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      <Send size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       {t("contact.form.submit")}
                     </>
                   )}
                 </button>
 
                 {status.type && (
-                  <div className={`animate-fade-in p-4 rounded-2xl flex items-start gap-3 text-sm ${
+                  <div className={`animate-fade-in p-4 rounded-2xl flex items-start gap-3 text-xs ${
                     status.type === 'success'
-                      ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800'
-                      : 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800'
+                      ? 'bg-emerald-50 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-400 border border-emerald-250 dark:border-emerald-800'
+                      : 'bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 border border-red-250 dark:border-red-800'
                   }`}>
                     {status.type === 'success'
                       ? <CheckCircle2 className="h-5 w-5 mt-0.5 flex-shrink-0" />
@@ -229,11 +229,11 @@ const Contact = () => {
         </div>
 
         {/* Footer */}
-        <div className='mt-24 pt-8 border-t border-gray-100 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4'>
-          <p className='text-sm text-gray-400'>
-            © {new Date().getFullYear()} <span className="font-bold text-gray-600 dark:text-gray-300">Trésor ALADE</span>. Tous droits réservés.
+        <div className='mt-24 pt-8 border-t border-zinc-150 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4'>
+          <p className='text-xs text-zinc-400'>
+            © {new Date().getFullYear()} <span className="font-bold text-zinc-650 dark:text-zinc-350">Trésor ALADE</span>. Tous droits réservés.
           </p>
-          <p className='text-xs text-gray-400 italic'>
+          <p className='text-[10px] text-zinc-450 dark:text-zinc-500 uppercase tracking-wider font-bold'>
             {t("contact.footer.madeWith")} — Next.js & Tailwind CSS
           </p>
         </div>

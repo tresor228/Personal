@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Archivo, Inter } from "next/font/google";
+import { Geist_Mono, Archivo, Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 import { LanguageProvider } from "./components/LanguageContext";
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -62,7 +68,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${archivo.variable} ${geistMono.variable} antialiased overflow-x-hidden min-h-screen scroll-smooth`}
+        className={`${outfit.variable} ${inter.variable} ${archivo.variable} ${geistMono.variable} font-outfit antialiased overflow-x-hidden min-h-screen scroll-smooth`}
       >
         <LanguageProvider>
           <ThemeProvider

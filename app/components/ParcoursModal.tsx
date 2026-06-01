@@ -157,10 +157,10 @@ export const ParcoursBoutton = () => {
       {/* Trigger */}
       <button
         onClick={open}
-        className="group relative flex items-center gap-3 px-10 py-4 bg-[#2DD4BF] hover:bg-[#0d9488] text-white rounded-full text-sm font-black uppercase tracking-[0.18em] transition-all duration-300 shadow-xl shadow-[#2DD4BF]/25 hover:shadow-[#2DD4BF]/40 hover:-translate-y-1 active:scale-95 overflow-hidden"
+        className="group relative flex items-center gap-3 px-10 py-4 bg-[#FD8D49] hover:bg-[#E06B29] text-white rounded-full text-xs font-black uppercase tracking-[0.18em] transition-all duration-300 shadow-xl shadow-[#FD8D49]/25 hover:shadow-[#FD8D49]/40 hover:-translate-y-1 active:scale-95 overflow-hidden font-outfit"
       >
         <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-        <GraduationCap size={20} />
+        <GraduationCap size={18} />
         Voir mon parcours
       </button>
 
@@ -180,7 +180,7 @@ export const ParcoursBoutton = () => {
 
           {/* Panel */}
           <div
-            className="relative z-10 w-[90vw] max-w-lg bg-[#0d0f14] rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden mx-4"
+            className="relative z-10 w-[90vw] max-w-lg bg-[#0B0D10] rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden mx-4 font-outfit"
             style={{
               maxHeight: "min(calc(100vh - 48px), 680px)",
               animation: isClosing
@@ -193,11 +193,11 @@ export const ParcoursBoutton = () => {
               <div className="flex items-start justify-between">
                 <div>
                   <h2 className="text-2xl font-black text-white">Parcours éducatif</h2>
-                  <p className="text-sm text-gray-400 mt-1">Formations & certifications</p>
+                  <p className="text-xs text-zinc-400 mt-1 uppercase tracking-wider font-bold">Formations & certifications</p>
                 </div>
                 <button
                   onClick={close}
-                  className="w-9 h-9 flex items-center justify-center bg-white/5 hover:bg-red-500/80 text-gray-400 hover:text-white rounded-xl transition-all flex-shrink-0 ml-4"
+                  className="w-9 h-9 flex items-center justify-center bg-white/5 hover:bg-red-500/80 text-zinc-400 hover:text-white rounded-xl transition-all flex-shrink-0 ml-4"
                 >
                   <X size={17} />
                 </button>
@@ -208,8 +208,8 @@ export const ParcoursBoutton = () => {
                 <button
                   onClick={() => setTab("education")}
                   className={`flex items-center gap-2 px-4 pb-3 text-sm font-bold transition-all border-b-2 -mb-px ${tab === "education"
-                    ? "border-[#2DD4BF] text-[#2DD4BF]"
-                    : "border-transparent text-gray-500 hover:text-gray-300"
+                    ? "border-[#FD8D49] text-[#FD8D49]"
+                    : "border-transparent text-zinc-500 hover:text-zinc-300"
                     }`}
                 >
                   <GraduationCap size={15} />
@@ -218,8 +218,8 @@ export const ParcoursBoutton = () => {
                 <button
                   onClick={() => setTab("certifications")}
                   className={`flex items-center gap-2 px-4 pb-3 text-sm font-bold transition-all border-b-2 -mb-px ${tab === "certifications"
-                    ? "border-[#2DD4BF] text-[#2DD4BF]"
-                    : "border-transparent text-gray-500 hover:text-gray-300"
+                    ? "border-[#FD8D49] text-[#FD8D49]"
+                    : "border-transparent text-zinc-500 hover:text-zinc-300"
                     }`}
                 >
                   <Award size={15} />
@@ -229,7 +229,7 @@ export const ParcoursBoutton = () => {
             </div>
 
             {/* ── Content ── */}
-            <div className="overflow-y-auto px-7 pb-7 flex-1">
+            <div className="overflow-y-auto px-7 pb-7 flex-grow">
 
               {/* Education Tab */}
               {tab === "education" && (
@@ -237,36 +237,36 @@ export const ParcoursBoutton = () => {
                   {educations.map((edu) => (
                     <div
                       key={edu.id}
-                      className="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#2DD4BF]/40 rounded-2xl transition-all group"
+                      className="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#FD8D49]/40 rounded-2xl transition-all group"
                     >
                       {/* Dot */}
-                      <div className={`mt-0.5 w-3 h-3 rounded-full flex-shrink-0 ring-4 ${edu.status === "ongoing" ? "bg-[#2DD4BF] ring-[#2DD4BF]/20" : "bg-gray-500 ring-gray-500/20"}`} />
+                      <div className={`mt-1.5 w-2.5 h-2.5 rounded-full flex-shrink-0 ring-4 ${edu.status === "ongoing" ? "bg-[#FD8D49] ring-[#FD8D49]/20" : "bg-zinc-600 ring-zinc-650/20"}`} />
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-3">
                           <div>
                             <div className="flex items-center gap-2 mb-0.5">
-                              <GraduationCap size={14} className="text-[#2DD4BF] flex-shrink-0" />
+                              <GraduationCap size={14} className="text-[#FD8D49] flex-shrink-0" />
                               <h3 className="font-bold text-white text-sm leading-snug">{edu.degree}</h3>
                             </div>
-                            <p className="text-[#2DD4BF] text-xs font-bold ml-5">{edu.school}</p>
+                            <p className="text-[#FD8D49] text-xs font-bold ml-5">{edu.school}</p>
                           </div>
                           {edu.status === "ongoing" && (
-                            <span className="flex-shrink-0 flex items-center gap-1 px-2.5 py-1 bg-[#2DD4BF]/15 text-[#2DD4BF] rounded-full text-[9px] font-black uppercase tracking-widest">
+                            <span className="flex-shrink-0 flex items-center gap-1 px-2.5 py-1 bg-[#FD8D49]/15 text-[#FD8D49] rounded-full text-[9px] font-black uppercase tracking-widest">
                               <Clock size={9} />
                               En cours
                             </span>
                           )}
                           {edu.status === "completed" && (
-                            <span className="flex-shrink-0 flex items-center gap-1 px-2.5 py-1 bg-gray-500/15 text-gray-400 rounded-full text-[9px] font-black uppercase tracking-widest">
+                            <span className="flex-shrink-0 flex items-center gap-1 px-2.5 py-1 bg-zinc-700/30 text-zinc-400 rounded-full text-[9px] font-black uppercase tracking-widest">
                               <CheckCircle size={9} />
                               Obtenu
                             </span>
                           )}
                         </div>
                         <div className="flex items-center gap-1.5 mt-2 ml-5">
-                          <Calendar size={11} className="text-gray-500" />
-                          <span className="text-xs text-gray-500">{edu.period}</span>
+                          <Calendar size={11} className="text-zinc-500" />
+                          <span className="text-xs text-zinc-500">{edu.period}</span>
                         </div>
                       </div>
                     </div>
@@ -283,30 +283,30 @@ export const ParcoursBoutton = () => {
                       href={cert.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#2DD4BF]/40 rounded-2xl transition-all group"
+                      className="flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#FD8D49]/40 rounded-2xl transition-all group"
                     >
                       {/* Icon */}
-                      <div className="w-9 h-9 bg-[#2DD4BF]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#2DD4BF]/20 transition-colors">
-                        <Award size={17} className="text-[#2DD4BF]" />
+                      <div className="w-9 h-9 bg-[#FD8D49]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#FD8D49]/20 transition-colors">
+                        <Award size={17} className="text-[#FD8D49]" />
                       </div>
 
                       {/* Info */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
-                          <p className="font-bold text-white text-sm leading-snug truncate group-hover:text-[#2DD4BF] transition-colors">{cert.name}</p>
-                          <span className="text-[10px] text-gray-500 font-bold whitespace-nowrap">{cert.year}</span>
+                          <p className="font-bold text-white text-sm leading-snug truncate group-hover:text-[#FD8D49] transition-colors">{cert.name}</p>
+                          <span className="text-[10px] text-zinc-500 font-bold whitespace-nowrap">{cert.year}</span>
                         </div>
                         <div className="flex items-center gap-2 mt-0.5 mb-2">
-                          <span className={`text-[10px] font-black uppercase tracking-wider ${trainingColor[cert.training] || "text-gray-400"}`}>
+                          <span className={`text-[10px] font-black uppercase tracking-wider ${trainingColor[cert.training] || "text-zinc-400"}`}>
                             {cert.training}
                           </span>
                         </div>
                         
-                        <p className="text-[11px] text-gray-400 leading-relaxed mb-3 line-clamp-2">
-                          {/* We'll use a generic description if not provided, but it's in the certifications page array */}
+                        <p className="text-[11px] text-zinc-400 leading-relaxed mb-3 line-clamp-2">
                           {cert.name.includes("BDD") ? "Administration multi-SGBD (PostgreSQL, Azure SQL, MongoDB, Oracle)." : 
                            cert.name.includes("UML") ? "Conception de modèles UML rigoureux pour systèmes complexes." :
                            cert.name.includes("Oracle") ? "Gestion, sécurité et optimisation de bases Oracle." :
+                           cert.name.includes("Modélisation") ? "Pratiques Merise rigoureuses (MCD, MLD, normalisation)." :
                            cert.name.includes("Prompt") ? "Maîtrise du Prompt Engineering pour LLMs & GenAI." :
                            cert.name.includes("Hackathon") ? "Développement IA innovant avec Google Gemini API." :
                            cert.name.includes("Vibe") ? "Développement accéléré par IA (Cursor, Lovable, V0)." :
@@ -315,7 +315,7 @@ export const ParcoursBoutton = () => {
 
                         <div className="flex flex-wrap gap-1.5 mt-auto">
                           {cert.tools.map((t) => (
-                            <span key={t} className="px-2 py-0.5 bg-white/5 text-gray-500 text-[9px] font-bold rounded uppercase tracking-tight border border-white/5">
+                            <span key={t} className="px-2 py-0.5 bg-white/5 text-zinc-500 text-[9px] font-bold rounded uppercase tracking-tight border border-white/5">
                               {t}
                             </span>
                           ))}
@@ -323,7 +323,7 @@ export const ParcoursBoutton = () => {
                       </div>
 
                       {/* Arrow */}
-                      <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 text-gray-400 group-hover:bg-[#2DD4BF] group-hover:text-white transition-all transform group-hover:translate-x-1">
+                      <div className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 text-zinc-400 group-hover:bg-[#FD8D49] group-hover:text-white transition-all transform group-hover:translate-x-1">
                         <ExternalLink size={14} />
                       </div>
                     </a>

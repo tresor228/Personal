@@ -35,12 +35,11 @@ interface WebProject extends BaseProject {
 type Project = DBAProject | WebProject;
 
 const Projects: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [filter, setFilter] = useState<ProjectCategory>("all");
   const [showAll, setShowAll] = useState(false);
 
   const projects: Project[] = [
-    // ... (projects data remains same)
     {
       id: 1,
       name: "Gestion Aéroport & Vols",
@@ -106,26 +105,31 @@ const Projects: React.FC = () => {
 
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
 
+  // Fallbacks for missing translations
+  const labelAll = language === "fr" ? "Tous" : "All";
+  const labelWeb = language === "fr" ? "Web" : "Web";
+  const labelDba = language === "fr" ? "DBA / Modélisation" : "DBA / Modeling";
+
   return (
-    <div className="py-10 w-full overflow-hidden">
-      <div className="section-divider mb-5" />
+    <div className="py-24 w-full overflow-hidden bg-white dark:bg-[#0B0D10]/15">
+      <div className="section-divider mb-12" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-8">
           {/* Section Header */}
           <div className="mb-6 flex flex-col gap-3">
-            <span data-aos="fade-right" className="text-[11px] font-black text-[#2DD4BF] uppercase tracking-[0.3em]">
+            <span data-aos="fade-right" className="text-[10px] font-black text-[#FD8D49] uppercase tracking-[0.35em] font-outfit">
               — {t("projects.subtitle")}
             </span>
             <h2
-              className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-gray-900 dark:text-white"
+              className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-zinc-950 dark:text-white font-outfit"
               data-aos="fade-right"
               data-aos-delay="100"
             >
               {t("projects.title")}
             </h2>
             <p
-              className="text-gray-600 dark:text-gray-400 max-w-2xl mt-2"
+              className="text-zinc-500 dark:text-zinc-400 max-w-xl mt-2 font-outfit text-sm"
               data-aos="fade-up"
               data-aos-delay="150"
             >
@@ -135,81 +139,94 @@ const Projects: React.FC = () => {
 
           {/* Filters */}
           <div
-            className="flex flex-wrap gap-3 pb-8 border-b border-gray-100 dark:border-white/5"
+            className="flex flex-wrap gap-3 pb-8 border-b border-zinc-100 dark:border-white/5 font-outfit"
             data-aos="fade-left"
           >
-              <Button
-                variant={filter === "all" ? "default" : "outline"}
-                onClick={() => { setFilter("all"); setShowAll(false); }}
-                className={`rounded-full uppercase text-[10px] font-black tracking-widest h-10 px-6 transition-all ${filter === "all" ? "bg-[#2DD4BF] hover:bg-[#0d9488] text-white shadow-lg shadow-[#2DD4BF]/20" : "border-[#2DD4BF]/30 text-[#2DD4BF] hover:bg-[#2DD4BF]/5"
-                  }`}
-              >
-                {t("projects.all")}
-              </Button>
-              <Button
-                variant={filter === "web" ? "default" : "outline"}
-                onClick={() => { setFilter("web"); setShowAll(false); }}
-                className={`rounded-full uppercase text-[10px] font-black tracking-widest h-10 px-6 transition-all ${filter === "web" ? "bg-[#2DD4BF] hover:bg-[#0d9488] text-white shadow-lg shadow-[#2DD4BF]/20" : "border-[#2DD4BF]/30 text-[#2DD4BF] hover:bg-[#2DD4BF]/5"
-                  }`}
-              >
-                {t("projects.web")}
-              </Button>
-              <Button
-                variant={filter === "dba" ? "default" : "outline"}
-                onClick={() => { setFilter("dba"); setShowAll(false); }}
-                className={`rounded-full uppercase text-[10px] font-black tracking-widest h-10 px-6 transition-all ${filter === "dba" ? "bg-[#2DD4BF] hover:bg-[#0d9488] text-white shadow-lg shadow-[#2DD4BF]/20" : "border-[#2DD4BF]/30 text-[#2DD4BF] hover:bg-[#2DD4BF]/5"
-                  }`}
-              >
-                {t("projects.dba")}
-              </Button>
-            </div>
+            <Button
+              variant={filter === "all" ? "default" : "outline"}
+              onClick={() => { setFilter("all"); setShowAll(false); }}
+              className={`rounded-full uppercase text-[10px] font-black tracking-widest h-10 px-6 transition-all ${
+                filter === "all"
+                  ? "bg-[#FD8D49] hover:bg-[#E06B29] text-white shadow-lg shadow-[#FD8D49]/20"
+                  : "border-[#FD8D49]/30 text-[#FD8D49] hover:bg-[#FD8D49]/5"
+              }`}
+            >
+              {labelAll}
+            </Button>
+            <Button
+              variant={filter === "web" ? "default" : "outline"}
+              onClick={() => { setFilter("web"); setShowAll(false); }}
+              className={`rounded-full uppercase text-[10px] font-black tracking-widest h-10 px-6 transition-all ${
+                filter === "web"
+                  ? "bg-[#FD8D49] hover:bg-[#E06B29] text-white shadow-lg shadow-[#FD8D49]/20"
+                  : "border-[#FD8D49]/30 text-[#FD8D49] hover:bg-[#FD8D49]/5"
+              }`}
+            >
+              {labelWeb}
+            </Button>
+            <Button
+              variant={filter === "dba" ? "default" : "outline"}
+              onClick={() => { setFilter("dba"); setShowAll(false); }}
+              className={`rounded-full uppercase text-[10px] font-black tracking-widest h-10 px-6 transition-all ${
+                filter === "dba"
+                  ? "bg-[#FD8D49] hover:bg-[#E06B29] text-white shadow-lg shadow-[#FD8D49]/20"
+                  : "border-[#FD8D49]/30 text-[#FD8D49] hover:bg-[#FD8D49]/5"
+              }`}
+            >
+              {labelDba}
+            </Button>
+          </div>
 
           {/* Project List - Grid 3 Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-outfit">
             {displayedProjects.map((project, index) => (
               <div
                 key={project.id}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
-                className="bg-white dark:bg-zinc-900/60 p-5 rounded-[2.5rem] border border-gray-100 dark:border-white/5 hover:border-[#2DD4BF]/40 transition-all duration-500 shadow-xl shadow-black/[0.02] flex flex-col h-full group"
+                className="bg-zinc-50 dark:bg-white/5 p-5 rounded-[2.5rem] border border-zinc-100 dark:border-white/5 hover:border-[#FD8D49]/40 transition-all duration-550 shadow-xl shadow-black/[0.01] flex flex-col h-full group"
               >
                 {/* Image Container */}
-                <div className="relative h-44 w-full overflow-hidden rounded-xl bg-gray-200 dark:bg-zinc-800 mb-4 flex-shrink-0">
+                <div className="relative h-48 w-full overflow-hidden rounded-2xl bg-zinc-200 dark:bg-zinc-800 mb-5 flex-shrink-0">
                   <Image
                     src={project.image}
                     alt={project.name}
                     fill
-                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 right-4 text-white">
-                    <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg ${project.category === 'web'
-                      ? 'bg-blue-600'
-                      : 'bg-[#2DD4BF]'
-                      }`}>
+                    <span className={`px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg ${
+                      project.category === 'web'
+                        ? 'bg-zinc-900 text-white'
+                        : 'bg-[#FD8D49] text-white'
+                    }`}>
                       {project.category === 'web' ? 'Web' : 'DBA'}
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col flex-grow space-y-3">
-                  <div className="flex items-center gap-2">
-                    {project.category === 'web' ? <Layout className="h-5 w-5 text-blue-500" /> : <Database className="h-5 w-5 text-emerald-500" />}
-                    <h3 className="text-base font-bold text-gray-900 dark:text-white line-clamp-1">
+                <div className="flex flex-col flex-grow space-y-3.5">
+                  <div className="flex items-center gap-2.5">
+                    {project.category === 'web' 
+                      ? <Layout className="h-5 w-5 text-[#FD8D49]" /> 
+                      : <Database className="h-5 w-5 text-[#FD8D49]" />
+                    }
+                    <h3 className="text-base font-bold text-zinc-950 dark:text-white line-clamp-1">
                       {project.name}
                     </h3>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-300 text-[11px] leading-relaxed line-clamp-2">
+                  <p className="text-zinc-550 dark:text-zinc-350 text-xs leading-relaxed line-clamp-2">
                     {project.description}
                   </p>
 
                   <div className="mt-auto pt-4">
                     {project.category === "web" ? (
                       <div className="space-y-4">
-                        <div className="flex items-center justify-between mb-1">
-                          <p className="text-[9px] text-gray-500 uppercase font-bold tracking-wider">Stack</p>
-                          <span className="px-1.5 py-0.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[9px] font-bold rounded border border-blue-100 dark:border-blue-900/30">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <p className="text-[9px] text-zinc-400 uppercase font-black tracking-widest">Stack</p>
+                          <span className="px-2 py-0.5 bg-[#FD8D49]/10 text-[#FD8D49] text-[9px] font-bold rounded border border-[#FD8D49]/20 font-outfit">
                             {project.year}
                           </span>
                         </div>
@@ -217,27 +234,27 @@ const Projects: React.FC = () => {
                           {project.stack.map((tech) => (
                             <span
                               key={tech}
-                              className="inline-flex items-center px-2 py-1 rounded bg-blue-50/30 dark:bg-blue-900/10 text-blue-600 dark:text-blue-400 text-[10px] font-bold border border-blue-100/20 dark:border-blue-800/30 uppercase tracking-tighter"
+                              className="inline-flex items-center px-2 py-1 rounded-lg bg-zinc-200/40 dark:bg-white/5 text-zinc-500 dark:text-zinc-400 text-[9px] font-bold border border-zinc-200/20 dark:border-white/5 uppercase tracking-tight"
                             >
                               {tech}
                             </span>
                           ))}
                         </div>
 
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2 pt-2">
                           {project.demoUrl && (
                             <Link href={project.demoUrl} target="_blank" className="flex-1">
-                              <Button className="w-full bg-[#2DD4BF] hover:bg-[#0d9488] text-white rounded-xl px-4 text-[10px] font-black uppercase tracking-widest h-11 transition-all">
+                              <Button className="w-full bg-[#FD8D49] hover:bg-[#E06B29] text-white rounded-xl px-4 text-[9px] font-black uppercase tracking-widest h-11 transition-all shadow-md shadow-[#FD8D49]/10">
                                 Demo
-                                <Globe className="h-4 w-4 ml-2" />
+                                <Globe className="h-3.5 w-3.5 ml-1.5" />
                               </Button>
                             </Link>
                           )}
                           {project.githubUrl && (
                             <Link href={project.githubUrl} target="_blank" className="flex-1">
-                              <Button variant="outline" className="w-full border-[#2DD4BF]/20 text-[#2DD4BF] hover:bg-[#2DD4BF] hover:text-white transition-all rounded-xl px-4 text-[10px] font-black uppercase tracking-widest h-11">
+                              <Button variant="outline" className="w-full border-zinc-250 dark:border-zinc-750 text-zinc-500 hover:border-[#FD8D49] hover:text-[#FD8D49] dark:hover:text-[#FD8D49] transition-all bg-white dark:bg-zinc-900 rounded-xl px-4 text-[9px] font-black uppercase tracking-widest h-11">
                                 GitHub
-                                <Github className="h-4 w-4 ml-2" />
+                                <Github className="h-3.5 w-3.5 ml-1.5" />
                               </Button>
                             </Link>
                           )}
@@ -245,14 +262,14 @@ const Projects: React.FC = () => {
                       </div>
                     ) : (
                       <div className="space-y-4">
-                        <div className="grid grid-cols-2 gap-2 font-poppins">
-                          <div className="p-2 bg-white/50 dark:bg-zinc-900/30 rounded-xl border border-gray-100 dark:border-zinc-800">
-                            <p className="text-[9px] text-gray-500 uppercase font-bold mb-0.5">Année</p>
-                            <p className="text-xs font-bold text-gray-900 dark:text-gray-100">{project.year}</p>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="p-2 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-150 dark:border-zinc-800">
+                            <p className="text-[9px] text-zinc-400 uppercase font-black tracking-widest mb-0.5">Année</p>
+                            <p className="text-xs font-bold text-zinc-800 dark:text-zinc-200">{project.year}</p>
                           </div>
-                          <div className="p-2 bg-white/50 dark:bg-zinc-900/30 rounded-xl border border-gray-100 dark:border-zinc-800">
-                            <p className="text-[9px] text-gray-500 uppercase font-bold mb-0.5">Outils</p>
-                            <p className="text-xs font-bold text-gray-900 dark:text-gray-100 truncate">{project.tools}</p>
+                          <div className="p-2 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-150 dark:border-zinc-800">
+                            <p className="text-[9px] text-zinc-400 uppercase font-black tracking-widest mb-0.5">Outils</p>
+                            <p className="text-xs font-bold text-zinc-800 dark:text-zinc-200 truncate">{project.tools}</p>
                           </div>
                         </div>
 
@@ -261,7 +278,7 @@ const Projects: React.FC = () => {
                             {project.entities.slice(0, 4).map((entity) => (
                               <span
                                 key={entity}
-                                className="px-2 py-1 bg-emerald-50 dark:bg-emerald-900/10 text-emerald-600 dark:text-emerald-400 text-[9px] font-bold rounded border border-emerald-100/30 dark:border-emerald-800/20 uppercase tracking-tighter"
+                                className="px-2 py-0.5 bg-[#FD8D49]/10 text-[#FD8D49] text-[9px] font-bold rounded border border-[#FD8D49]/20 uppercase tracking-tight"
                               >
                                 {entity}
                               </span>
@@ -269,8 +286,8 @@ const Projects: React.FC = () => {
                           </div>
                         </div>
 
-                        <Button className="w-full bg-[#2DD4BF] hover:bg-[#0d9488] text-white rounded-xl text-[10px] font-black uppercase tracking-widest h-11 mt-2 shadow-lg shadow-[#2DD4BF]/10">
-                          <Layers className="h-4 w-4 mr-2" />
+                        <Button className="w-full bg-[#FD8D49] hover:bg-[#E06B29] text-white rounded-xl text-[9px] font-black uppercase tracking-widest h-11 mt-2 shadow-lg shadow-[#FD8D49]/10">
+                          <Layers className="h-3.5 w-3.5 mr-1.5" />
                           Modélisation
                         </Button>
                       </div>
@@ -285,7 +302,7 @@ const Projects: React.FC = () => {
             <div className="flex justify-center pt-8">
               <Button
                 onClick={() => setShowAll(!showAll)}
-                className="bg-[#2DD4BF] hover:bg-[#0d9488] text-white rounded-full px-12 py-6 uppercase font-black tracking-widest text-sm shadow-xl shadow-[#2DD4BF]/20 transition-all hover:scale-105 active:scale-95"
+                className="bg-[#FD8D49] hover:bg-[#E06B29] text-white rounded-full px-12 py-6 uppercase font-black tracking-widest text-xs shadow-xl shadow-[#FD8D49]/20 transition-all hover:scale-105 active:scale-95 font-outfit"
               >
                 {showAll ? t("projects.viewLess") : t("projects.viewMore")}
               </Button>
@@ -293,10 +310,10 @@ const Projects: React.FC = () => {
           )}
 
           {filteredProjects.length === 0 && (
-            <div className="flex flex-col items-center justify-center py-20 text-center opacity-50">
-              <Search className="h-12 w-12 text-gray-400 mb-4" />
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">Aucun projet</h3>
-              <p className="text-sm dark:text-gray-400">Essayez une autre catégorie.</p>
+            <div className="flex flex-col items-center justify-center py-20 text-center opacity-50 font-outfit">
+              <Search className="h-12 w-12 text-zinc-400 mb-4" />
+              <h3 className="text-lg font-bold text-zinc-800 dark:text-white">Aucun projet</h3>
+              <p className="text-xs text-zinc-500">Essayez une autre catégorie.</p>
             </div>
           )}
         </div>
